@@ -15,16 +15,12 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
-
     steps:
       - uses: actions/checkout@v4
-
       - name: Install uv
         uses: astral-sh/setup-uv@v5
-
       - name: Create virtual environment
         run: uv venv
-
       - name: Run tests using uv
         run: uv run pytest tests
 
@@ -35,10 +31,13 @@ jobs:
     if: github.event_name == 'push' && github.ref == 'refs/heads/master'
     environment: pypi
     permissions:
+      contents: write
       id-token: write
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
 
       - name: Install uv
         uses: astral-sh/setup-uv@v5
@@ -55,14 +54,16 @@ jobs:
       - name: Set Git identity for Quarto publishing
         run: |
           git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
       - name: Clean any leftover Quarto publish worktree
         run: rm -rf .quarto
 
       - name: Render and Publish
         working-directory: docs
-        run: uv run quarto publish gh-pages --no-browser --token "${{ secrets.GITHUB_TOKEN }}"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: uv run quarto publish gh-pages --no-browser
 
       - name: Publish package using uv
         run: uv publish
