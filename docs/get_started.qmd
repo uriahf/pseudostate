@@ -1,0 +1,21 @@
+## Get Started with pseudostate
+
+This is a reproducible example that shows how to use pseudostate.
+
+```{python}
+
+import polars as pl
+from pseudostate import calculate_pseudostates
+
+times_and_reals = pl.DataFrame({
+		"times": [1, 2, 2, 3, 4, 5, 6],
+		"reals": [1, 0, 2, 1, 0, 2, 1]
+})
+
+fixed_time_horizon = 3
+
+calculate_pseudostates(times_and_reals, fixed_time_horizon)
+
+```
+
+
