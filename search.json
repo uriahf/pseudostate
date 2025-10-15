@@ -1,0 +1,31 @@
+[
+  {
+    "objectID": "get_started.html",
+    "href": "get_started.html",
+    "title": "Get Started with pseudostate",
+    "section": "",
+    "text": "This is a reproducible example that shows how to use pseudostate.\n\nimport polars as pl\nfrom pseudostate import calculate_pseudostates\n\ntimes_and_reals = pl.DataFrame({\n        \"times\": [1, 2, 2, 3, 4, 5, 6],\n        \"reals\": [1, 0, 2, 1, 0, 2, 1]\n})\n\nfixed_time_horizon = 3\n\ncalculate_pseudostates(times_and_reals, fixed_time_horizon)"
+  },
+  {
+    "objectID": "reference/index.html",
+    "href": "reference/index.html",
+    "title": "Function reference",
+    "section": "",
+    "text": "Introduction to the package.",
+    "crumbs": [
+      "Reference",
+      "Function reference"
+    ]
+  },
+  {
+    "objectID": "reference/index.html#getting-started",
+    "href": "reference/index.html#getting-started",
+    "title": "Function reference",
+    "section": "",
+    "text": "Introduction to the package.",
+    "crumbs": [
+      "Reference",
+      "Function reference"
+    ]
+  }
+]
