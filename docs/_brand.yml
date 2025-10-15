@@ -1,0 +1,26 @@
+color:
+  palette:
+    mist-blue: "#dfeaf0"
+    deep-slate: "#2e3540"
+    fog-white: "#f5f8fa"
+    mirror-blue: "#b7c9d3"
+    abyss: "#15181c"
+    shimmer-grey: "#d8dee2"
+  background: mist-blue
+  foreground: deep-slate
+  primary: abyss
+
+logo:
+  large: logo.png
+
+typography:
+  fonts:
+    - family: Lato
+      source: google
+    - family: Fraunces
+      source: google
+    - family: JetBrains Mono
+      source: google
+  base: Lato
+  headings: Fraunces
+  monospace: JetBrains Mono
