@@ -5,7 +5,8 @@ build/
 dist/
 wheels/
 *.egg-info
-**/*.html
+docs/_site/
+.quarto/
 
 # Virtual environments
 .venv
