@@ -67,7 +67,10 @@ jobs:
       
       - name: Build API docs (quartodoc)
         working-directory: docs
-        run: uv run --group dev quartodoc build --config _quarto.yml
+        run: uv run --group dev quartodoc build
+      - name: Debug - List generated files
+        working-directory: docs
+        run: find . -name "*.qmd" -type f
 
       - name: Render site
         working-directory: docs
