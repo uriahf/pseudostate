@@ -58,6 +58,10 @@ jobs:
 
       - name: Clean any leftover Quarto publish worktree
         run: rm -rf .quarto
+      
+      - name: Build API docs (quartodoc)
+        working-directory: docs
+        run: uv run quartodoc build
 
       - name: Render and Publish
         working-directory: docs
