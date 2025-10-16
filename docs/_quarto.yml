@@ -11,6 +11,7 @@ website:
         text: "Reference"
 
 metadata-files:
+  - _brand.yml
   - _sidebar.yml
 
 
@@ -18,5 +19,7 @@ quartodoc:
   sidebar: "_sidebar.yml"
   package: pseudostate
   sections:
-    - title: Getting Started
-      desc: Introduction to the package.
+    - title: API Reference
+      desc: Core functions for computing pseudo-state estimates.
+      contents:
+        - calculate_pseudostates
