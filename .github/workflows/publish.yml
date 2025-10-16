@@ -67,9 +67,13 @@ jobs:
       
       - name: Build API docs (quartodoc)
         working-directory: docs
-        run: uv run quartodoc build
+        run: uv run --group dev quartodoc build --config _quarto.yml
 
-      - name: Render and Publish
+      - name: Render site
+        working-directory: docs
+        run: uv run quarto render
+
+      - name: Publish to GitHub Pages
         working-directory: docs
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
