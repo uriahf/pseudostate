@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://uriahf.github.io/pseudostate/reference/index.html</loc>
-    <lastmod>2025-10-16T08:27:29.429Z</lastmod>
-  </url>
-  <url>
     <loc>https://uriahf.github.io/pseudostate/get_started.html</loc>
-    <lastmod>2025-10-16T05:16:29.330Z</lastmod>
+    <lastmod>2025-10-23T03:19:52.030Z</lastmod>
   </url>
   <url>
     <loc>https://uriahf.github.io/pseudostate/reference/calculate_pseudostates.html</loc>
-    <lastmod>2025-10-16T07:10:21.329Z</lastmod>
+    <lastmod>2025-10-23T03:20:11.307Z</lastmod>
+  </url>
+  <url>
+    <loc>https://uriahf.github.io/pseudostate/reference/index.html</loc>
+    <lastmod>2025-10-23T03:20:11.293Z</lastmod>
   </url>
 </urlset>
