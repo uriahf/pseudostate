@@ -1,20 +1,29 @@
 color:
   palette:
-    mist-blue: "#dfeaf0"
-    deep-slate: "#2e3540"
-    fog-white: "#f5f8fa"
-    mirror-blue: "#b7c9d3"
-    abyss: "#15181c"
-    shimmer-grey: "#d8dee2"
-  background: mist-blue
-  foreground: deep-slate
-  primary: abyss
-
+    white: "#f7fbfd"
+    black: "#0e1419"
+    navbar-bg: white
+    navbar-fg: "#0f3b5f"
+    navbar-hl: "#1f5f82"
+    primary: "#e6f1f6"
+    link: "#1f5f82"
+    danger: "#7a2e2e"
+  background: white
+  foreground: black
+  primary: primary
+  light: white
+  dark: black
+  danger: danger
+  link: link
 logo:
   large: logo.png
 
 typography:
   fonts:
+    - source: file
+      family: Fraunces9pt-Light
+      files:
+        - assets/fonts/Fraunces9pt-Light.woff2
     - family: Lato
       source: google
     - family: Fraunces
@@ -22,5 +31,9 @@ typography:
     - family: JetBrains Mono
       source: google
   base: Lato
-  headings: Fraunces
+  headings:
+    family: Fraunces9pt-Light
+    weight: 700
+    style: normal
+    line-height: 1.2
   monospace: JetBrains Mono
