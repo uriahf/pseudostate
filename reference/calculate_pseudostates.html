@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.26">
+<meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -72,14 +72,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-8c72952ee3bb7393c4da19789dad797f.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-f249475e52cfe1a8e33717ce9f888b08.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-8c72952ee3bb7393c4da19789dad797f.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-5acddea9ec7addd5e9532e878e20728d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-e3345c6ef29c45a7958e8df45469d16f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-5acddea9ec7addd5e9532e878e20728d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-f608c60e8059425955e0a613f06d8128.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-f608c60e8059425955e0a613f06d8128.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-f608c60e8059425955e0a613f06d8128.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-784d68ddb2eaaa63462f26a7eb4ad142.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-784d68ddb2eaaa63462f26a7eb4ad142.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-784d68ddb2eaaa63462f26a7eb4ad142.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -207,10 +207,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="pseudostate.calculate_pseudostates" class="level1">
 <h1>calculate_pseudostates</h1>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>calculate_pseudostates(times_and_reals, fixed_time_horizon)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Compute Aalen Johansen pseudo-observations at a fixed time horizon.</p>
-<p>This function computes jackknife pseudo-observations for state occupation probabilities (or related Aalen Johansen estimands) evaluated at a fixed time horizon. Pseudo-observations are constructed using a leave-one-out scheme:</p>
+<p>Compute Aalen�Johansen pseudo-observations at a fixed time horizon.</p>
+<p>This function computes jackknife pseudo-observations for state occupation probabilities (or related Aalen�Johansen estimands) evaluated at a fixed time horizon. Pseudo-observations are constructed using a leave-one-out scheme:</p>
 <pre><code>pseudo_i = n * theta_full - (n - 1) * theta_{(-i)}</code></pre>
-<p>where <code>theta_full</code> is the Aalen Johansen estimate based on the full sample, and <code>theta_{(-i)}</code> is the estimate obtained after removing individual <code>i</code>.</p>
+<p>where <code>theta_full</code> is the Aalen�Johansen estimate based on the full sample, and <code>theta_{(-i)}</code> is the estimate obtained after removing individual <code>i</code>.</p>
 <p>The resulting pseudo-observations can be used as individual-level outcomes in regression models (e.g., GEE or GLM) to assess covariate effects on cumulative incidence or state occupation probabilities.</p>
 <section id="parameters" class="level2 doc-section doc-section-parameters">
 <h2 class="doc-section doc-section-parameters anchored" data-anchor-id="parameters">Parameters</h2>
@@ -239,7 +239,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="even">
 <td>fixed_time_horizon</td>
 <td>int</td>
-<td>Time point at which the Aalen Johansen estimates are evaluated.</td>
+<td>Time point at which the Aalen�Johansen estimates are evaluated.</td>
 <td><em>required</em></td>
 </tr>
 </tbody>
@@ -264,7 +264,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="odd">
 <td></td>
 <td>pl.DataFrame</td>
-<td>A Polars DataFrame containing pseudo-observations for each individual. The output includes: - Identifier columns (e.g., state, time, horizon) copied from the full-sample Aalen Johansen estimate. - Numeric columns containing the pseudo-observations. - A <code>row_id</code> column indicating the index of the left-out observation. For each numeric column, the mean of the pseudo-observations equals the corresponding full-sample Aalen Johansen estimate.</td>
+<td>A Polars DataFrame containing pseudo-observations for each individual. The output includes: - Identifier columns (e.g., state, time, horizon) copied from the full-sample Aalen�Johansen estimate. - Numeric columns containing the pseudo-observations. - A <code>row_id</code> column indicating the index of the left-out observation. For each numeric column, the mean of the pseudo-observations equals the corresponding full-sample Aalen�Johansen estimate.</td>
 </tr>
 </tbody>
 </table>
@@ -272,14 +272,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="notes" class="level2 doc-section doc-section-notes">
 <h2 class="doc-section doc-section-notes anchored" data-anchor-id="notes">Notes</h2>
 <ul>
-<li>This implementation uses an explicit leave-one-out loop and therefore has time complexity O(n²). It is intended for methodological work, simulations, or moderate sample sizes.</li>
+<li>This implementation uses an explicit leave-one-out loop and therefore has time complexity O(n�). It is intended for methodological work, simulations, or moderate sample sizes.</li>
 <li>In the absence of censoring, the pseudo-observations reduce to the empirical individual contributions.</li>
 <li>Non-numeric columns (e.g., state labels) are treated as identifiers and are not transformed.</li>
 </ul>
 </section>
 <section id="references" class="level2 doc-section doc-section-references">
 <h2 class="doc-section doc-section-references anchored" data-anchor-id="references">References</h2>
-<p>Andersen, P. K., &amp; Pohar Perme, M. (2010). Pseudo-observations in survival analysis. <em>Statistical Methods in Medical Research</em>, 19(1), 71–99.</p>
+<p>Andersen, P. K., &amp; Pohar Perme, M. (2010). Pseudo-observations in survival analysis. <em>Statistical Methods in Medical Research</em>, 19(1), 71�99.</p>
 
 
 </section>
