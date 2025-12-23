@@ -34,23 +34,5 @@ jobs:
       - name: Build package using uv
         run: uv build
 
-      - name: Set up Quarto
-        uses: quarto-dev/quarto-actions/setup@v2
-
-      - name: Set Git identity for Quarto publishing
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
-      - name: Build API docs (quartodoc)
-        working-directory: docs
-        run: uv run quartodoc build
-
-      - name: Publish to GitHub Pages
-        working-directory: docs
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: uv run quarto publish gh-pages --no-browser
-
       - name: Publish package using uv
         run: uv publish
