@@ -178,7 +178,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>This is a reproducible example that shows how to use pseudostate.</p>
-<div id="f1d904b1" class="cell" data-execution_count="1">
+<section id="background" class="level3">
+<h3 class="anchored" data-anchor-id="background">Background</h3>
+<p>The theoretical foundation for pseudo-observations was laid out in a 2003 paper by Andersen, Klein, and Rosthøj:</p>
+<ul>
+<li>Andersen, P. K., Klein, J. P., &amp; Rosthøj, S. (2003). Generalised linear models for correlated pseudo-observations, with applications to multi-state models. <em>Biometrika</em>, 90(1), 15–27.</li>
+</ul>
+<p>A popular implementation of this technique is the <code>pseudo</code> R package, which is available on CRAN:</p>
+<ul>
+<li><a href="https://cran.r-project.org/package=pseudo">https://cran.r-project.org/package=pseudo</a></li>
+</ul>
+<div id="87b54b0a" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pseudostate <span class="im">import</span> calculate_pseudostates</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -282,6 +292,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
