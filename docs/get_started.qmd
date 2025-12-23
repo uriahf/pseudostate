@@ -2,6 +2,16 @@
 
 This is a reproducible example that shows how to use pseudostate.
 
+### Background
+
+The theoretical foundation for pseudo-observations was laid out in a 2003 paper by Andersen, Klein, and Rosthøj:
+
+- Andersen, P. K., Klein, J. P., & Rosthøj, S. (2003). Generalised linear models for correlated pseudo-observations, with applications to multi-state models. *Biometrika*, 90(1), 15–27.
+
+A popular implementation of this technique is the `pseudo` R package, which is available on CRAN:
+
+- [https://cran.r-project.org/package=pseudo](https://cran.r-project.org/package=pseudo)
+
 ```{python}
 
 import polars as pl
