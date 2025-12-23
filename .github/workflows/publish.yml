@@ -1,34 +1,17 @@
-name: Python package
+name: Python package publish
 
 on:
-  push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
+  release:
+    types: [created]
 
 permissions:
   contents: write
   id-token: write
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-    steps:
-      - uses: actions/checkout@v4
-      - name: Install uv
-        uses: astral-sh/setup-uv@v5
-      - name: Create virtual environment
-        run: uv venv
-      - name: Run tests using uv
-        run: uv run pytest tests
-
   publish:
     name: Upload release to PyPI
     runs-on: ubuntu-latest
-    needs: build
-    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
     environment: pypi
     permissions:
       contents: write
@@ -45,14 +28,11 @@ jobs:
       - name: Create virtual environment
         run: uv venv
 
+      - name: Install dev dependencies
+        run: uv pip install -e .[dev]
+
       - name: Build package using uv
         run: uv build
-
-      - name: 🐍 Set up Python
-        run: uv python install
-
-      - name: Install Jupyter
-        run: uv pip install jupyter
 
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
@@ -62,15 +42,9 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-      - name: Clean any leftover Quarto publish worktree
-        run: rm -rf .quarto
-      
       - name: Build API docs (quartodoc)
         working-directory: docs
-        run: uv run --group dev quartodoc build
-      - name: Debug - List generated files
-        working-directory: docs
-        run: find . -name "*.qmd" -type f
+        run: uv run quartodoc build
 
       - name: Publish to GitHub Pages
         working-directory: docs
