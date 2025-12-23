@@ -209,8 +209,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>calculate_pseudostates(times_and_reals, fixed_time_horizon)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Compute Aalen Johansen pseudo-observations at a fixed time horizon.</p>
 <p>This function computes jackknife pseudo-observations for state occupation probabilities (or related Aalen Johansen estimands) evaluated at a fixed time horizon. Pseudo-observations are constructed using a leave-one-out scheme:</p>
-<pre><code>pseudo_i = n * theta_full - (n - 1) * theta_{(-i)}</code></pre>
-<p>where <code>theta_full</code> is the Aalen Johansen estimate based on the full sample, and <code>theta_{(-i)}</code> is the estimate obtained after removing individual <code>i</code>.</p>
+<p>.. math::</p>
+<pre><code>\text{pseudo}_i = n \cdot \theta_{\text{full}} - (n - 1) \cdot \theta_{(-i)}</code></pre>
+<p>where :math:<code>\theta_{\text{full}}</code> is the Aalen Johansen estimate based on the full sample, and :math:<code>\theta_{(-i)}</code> is the estimate obtained after removing individual :math:<code>i</code>.</p>
 <p>The resulting pseudo-observations can be used as individual-level outcomes in regression models (e.g., GEE or GLM) to assess covariate effects on cumulative incidence or state occupation probabilities.</p>
 <section id="parameters" class="level2 doc-section doc-section-parameters">
 <h2 class="doc-section doc-section-parameters anchored" data-anchor-id="parameters">Parameters</h2>
@@ -269,6 +270,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tbody>
 </table>
 </section>
+<section id="see-also" class="level2 doc-section doc-section-see-also">
+<h2 class="doc-section doc-section-see-also anchored" data-anchor-id="see-also">See Also</h2>
+<p>polarstate.prepare_event_table : Convert raw data into an event table. polarstate.predict_aj_estimates : Predict Aalen-Johansen estimates.</p>
+</section>
 <section id="notes" class="level2 doc-section doc-section-notes">
 <h2 class="doc-section doc-section-notes anchored" data-anchor-id="notes">Notes</h2>
 <ul>
@@ -279,7 +284,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="references" class="level2 doc-section doc-section-references">
 <h2 class="doc-section doc-section-references anchored" data-anchor-id="references">References</h2>
-<p>Andersen, P. K., &amp; Pohar Perme, M. (2010). Pseudo-observations in survival analysis. <em>Statistical Methods in Medical Research</em>, 19(1), 71–99.</p>
+<p>.. [1] Andersen, P. K., &amp; Pohar Perme, M. (2010). Pseudo-observations in survival analysis. <em>Statistical Methods in Medical Research</em>, 19(1), 71–99.</p>
 
 
 </section>

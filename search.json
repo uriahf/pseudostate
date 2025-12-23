@@ -4,14 +4,14 @@
     "href": "get_started.html",
     "title": "Get Started with pseudostate",
     "section": "",
-    "text": "This is a reproducible example that shows how to use pseudostate.\n\nimport polars as pl\nfrom pseudostate import calculate_pseudostates\n\ntimes_and_reals = pl.DataFrame({\n        \"times\": [1, 2, 2, 3, 4, 5, 6],\n        \"reals\": [1, 0, 2, 1, 0, 2, 1]\n})\n\nfixed_time_horizon = 5\n\ncalculate_pseudostates(times_and_reals, fixed_time_horizon)\n\n\nshape: (7, 6)\n\n\n\nestimate_origin\ntimes\nstate_occupancy_probability_0\nstate_occupancy_probability_1\nstate_occupancy_probability_2\nrow_id\n\n\nenum\ni64\nf64\nf64\nf64\ni32\n\n\n\n\n\"fixed_time_horizons\"\n5\n0.0\n1.0\n4.4409e-16\n0\n\n\n\"fixed_time_horizons\"\n5\n0.375\n0.25\n0.375\n1\n\n\n\"fixed_time_horizons\"\n5\n0.0\n0.0\n1.0\n2\n\n\n\"fixed_time_horizons\"\n5\n-0.125\n1.25\n-0.125\n3\n\n\n\"fixed_time_horizons\"\n5\n0.541667\n-0.083333\n0.541667\n4\n\n\n\"fixed_time_horizons\"\n5\n-0.791667\n-0.083333\n1.875\n5\n\n\n\"fixed_time_horizons\"\n5\n1.875\n-0.083333\n-0.791667\n6"
+    "text": "This is a reproducible example that shows how to use pseudostate.\n\nimport polars as pl\nfrom pseudostate import calculate_pseudostates\n\ntimes_and_reals = pl.DataFrame({\n        \"times\": [1, 2, 2, 3, 4, 5, 6],\n        \"reals\": [1, 0, 2, 1, 0, 2, 1]\n})\n\nfixed_time_horizon = 5\n\ncalculate_pseudostates(times_and_reals, fixed_time_horizon)\n\n\nshape: (7, 6)\n\n\n\nestimate_origin\ntimes\nstate_occupancy_probability_0\nstate_occupancy_probability_1\nstate_occupancy_probability_2\nrow_id\n\n\nenum\nf64\nf64\nf64\nf64\ni32\n\n\n\n\n\"fixed_time_horizons\"\n5.0\n0.0\n1.0\n4.4409e-16\n0\n\n\n\"fixed_time_horizons\"\n5.0\n0.375\n0.25\n0.375\n1\n\n\n\"fixed_time_horizons\"\n5.0\n0.0\n0.0\n1.0\n2\n\n\n\"fixed_time_horizons\"\n5.0\n-0.125\n1.25\n-0.125\n3\n\n\n\"fixed_time_horizons\"\n5.0\n0.541667\n-0.083333\n0.541667\n4\n\n\n\"fixed_time_horizons\"\n5.0\n-0.791667\n-0.083333\n1.875\n5\n\n\n\"fixed_time_horizons\"\n5.0\n1.875\n-0.083333\n-0.791667\n6"
   },
   {
     "objectID": "reference/calculate_pseudostates.html",
     "href": "reference/calculate_pseudostates.html",
     "title": "calculate_pseudostates",
     "section": "",
-    "text": "calculate_pseudostates(times_and_reals, fixed_time_horizon)\nCompute Aalen Johansen pseudo-observations at a fixed time horizon.\nThis function computes jackknife pseudo-observations for state occupation probabilities (or related Aalen Johansen estimands) evaluated at a fixed time horizon. Pseudo-observations are constructed using a leave-one-out scheme:\npseudo_i = n * theta_full - (n - 1) * theta_{(-i)}\nwhere theta_full is the Aalen Johansen estimate based on the full sample, and theta_{(-i)} is the estimate obtained after removing individual i.\nThe resulting pseudo-observations can be used as individual-level outcomes in regression models (e.g., GEE or GLM) to assess covariate effects on cumulative incidence or state occupation probabilities.\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\ntimes_and_reals\npl.DataFrame\nInput data containing individual event times and realized states. Must be compatible with prepare_event_table and predict_aj_estimates. Each row corresponds to a single individual.\nrequired\n\n\nfixed_time_horizon\nint\nTime point at which the Aalen Johansen estimates are evaluated.\nrequired\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\n\n\n\n\n\npl.DataFrame\nA Polars DataFrame containing pseudo-observations for each individual. The output includes: - Identifier columns (e.g., state, time, horizon) copied from the full-sample Aalen Johansen estimate. - Numeric columns containing the pseudo-observations. - A row_id column indicating the index of the left-out observation. For each numeric column, the mean of the pseudo-observations equals the corresponding full-sample Aalen Johansen estimate.\n\n\n\n\n\n\n\nThis implementation uses an explicit leave-one-out loop and therefore has time complexity O(n²). It is intended for methodological work, simulations, or moderate sample sizes.\nIn the absence of censoring, the pseudo-observations reduce to the empirical individual contributions.\nNon-numeric columns (e.g., state labels) are treated as identifiers and are not transformed.\n\n\n\n\nAndersen, P. K., & Pohar Perme, M. (2010). Pseudo-observations in survival analysis. Statistical Methods in Medical Research, 19(1), 71–99.",
+    "text": "calculate_pseudostates(times_and_reals, fixed_time_horizon)\nCompute Aalen Johansen pseudo-observations at a fixed time horizon.\nThis function computes jackknife pseudo-observations for state occupation probabilities (or related Aalen Johansen estimands) evaluated at a fixed time horizon. Pseudo-observations are constructed using a leave-one-out scheme:\n.. math::\n\\text{pseudo}_i = n \\cdot \\theta_{\\text{full}} - (n - 1) \\cdot \\theta_{(-i)}\nwhere :math:\\theta_{\\text{full}} is the Aalen Johansen estimate based on the full sample, and :math:\\theta_{(-i)} is the estimate obtained after removing individual :math:i.\nThe resulting pseudo-observations can be used as individual-level outcomes in regression models (e.g., GEE or GLM) to assess covariate effects on cumulative incidence or state occupation probabilities.\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\ntimes_and_reals\npl.DataFrame\nInput data containing individual event times and realized states. Must be compatible with prepare_event_table and predict_aj_estimates. Each row corresponds to a single individual.\nrequired\n\n\nfixed_time_horizon\nint\nTime point at which the Aalen Johansen estimates are evaluated.\nrequired\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\n\n\n\n\n\npl.DataFrame\nA Polars DataFrame containing pseudo-observations for each individual. The output includes: - Identifier columns (e.g., state, time, horizon) copied from the full-sample Aalen Johansen estimate. - Numeric columns containing the pseudo-observations. - A row_id column indicating the index of the left-out observation. For each numeric column, the mean of the pseudo-observations equals the corresponding full-sample Aalen Johansen estimate.\n\n\n\n\n\n\npolarstate.prepare_event_table : Convert raw data into an event table. polarstate.predict_aj_estimates : Predict Aalen-Johansen estimates.\n\n\n\n\nThis implementation uses an explicit leave-one-out loop and therefore has time complexity O(n²). It is intended for methodological work, simulations, or moderate sample sizes.\nIn the absence of censoring, the pseudo-observations reduce to the empirical individual contributions.\nNon-numeric columns (e.g., state labels) are treated as identifiers and are not transformed.\n\n\n\n\n.. [1] Andersen, P. K., & Pohar Perme, M. (2010). Pseudo-observations in survival analysis. Statistical Methods in Medical Research, 19(1), 71–99.",
     "crumbs": [
       "Reference",
       "API Reference",
@@ -43,6 +43,18 @@
     ]
   },
   {
+    "objectID": "reference/calculate_pseudostates.html#see-also",
+    "href": "reference/calculate_pseudostates.html#see-also",
+    "title": "calculate_pseudostates",
+    "section": "",
+    "text": "polarstate.prepare_event_table : Convert raw data into an event table. polarstate.predict_aj_estimates : Predict Aalen-Johansen estimates.",
+    "crumbs": [
+      "Reference",
+      "API Reference",
+      "calculate_pseudostates"
+    ]
+  },
+  {
     "objectID": "reference/calculate_pseudostates.html#notes",
     "href": "reference/calculate_pseudostates.html#notes",
     "title": "calculate_pseudostates",
@@ -59,7 +71,7 @@
     "href": "reference/calculate_pseudostates.html#references",
     "title": "calculate_pseudostates",
     "section": "",
-    "text": "Andersen, P. K., & Pohar Perme, M. (2010). Pseudo-observations in survival analysis. Statistical Methods in Medical Research, 19(1), 71–99.",
+    "text": ".. [1] Andersen, P. K., & Pohar Perme, M. (2010). Pseudo-observations in survival analysis. Statistical Methods in Medical Research, 19(1), 71–99.",
     "crumbs": [
       "Reference",
       "API Reference",
