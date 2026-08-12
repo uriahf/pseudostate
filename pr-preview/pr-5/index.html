@@ -130,7 +130,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="stylesheet" href="classic.css">
   <link rel="alternate" type="text/markdown" href="index.md">
   <link rel="canonical" href="https://uriahf.github.io/pseudostate/">
-  <meta name="description" content="Add your description here">
+  <meta name="description" content="The theoretical foundation for pseudo-observations in multi-state models was laid out by Andersen, Klein, and Rosthøj (2003), Generalised linear models...">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -147,12 +147,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </script>
   <meta property="og:type" content="website">
   <meta property="og:title" content="Get started – pseudostate | pseudostate">
-  <meta property="og:description" content="Add your description here">
+  <meta property="og:description" content="The theoretical foundation for pseudo-observations in multi-state models was laid out by Andersen, Klein, and Rosthøj (2003), Generalised linear models...">
   <meta property="og:url" content="https://uriahf.github.io/pseudostate">
   <meta property="og:site_name" content="pseudostate">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Get started – pseudostate | pseudostate">
-  <meta name="twitter:description" content="Add your description here">
+  <meta name="twitter:description" content="The theoretical foundation for pseudo-observations in multi-state models was laid out by Andersen, Klein, and Rosthøj (2003), Generalised linear models...">
 </head>
 
 <body class="nav-sidebar floating nav-fixed fullcontent quarto-light">
@@ -241,25 +241,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-```{=html} # pragma: no cover
-<div class="gd-hero">
-<img src="assets/logo.png" alt="Logo" class="gd-hero-logo" style="max-height:128px">
-<p class="gd-hero-tagline">
-Add your description here
-</p>
-</div>
-<pre><code>
-`pseudostate` computes Aalen–Johansen pseudo-observations at a fixed time
-horizon. These pseudo-observations can be used as individual-level outcomes in
-regression models for cumulative incidence or state occupation probabilities.
-
-## Installation
-
-```bash
-pip install pseudostate</code></pre>
+<p><code>pseudostate</code> computes Aalen–Johansen pseudo-observations at a fixed time horizon. These pseudo-observations can be used as individual-level outcomes in regression models for cumulative incidence or state occupation probabilities.</p>
+<section id="installation" class="level1">
+<h1>Installation</h1>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install pseudostate</span></code></pre></div>
+</section>
 <section id="a-reproducible-example" class="level1">
 <h1>A reproducible example</h1>
-<div id="362d05c6" class="cell" data-execution_count="1">
+<div id="5fae5601" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pseudostate <span class="im">import</span> calculate_pseudostates</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>

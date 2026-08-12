@@ -1,21 +1,13 @@
 # Get started
 
-\`\`\`{=html} \# pragma: no cover
+`pseudostate` computes Aalen-Johansen pseudo-observations at a fixed time horizon. These pseudo-observations can be used as individual-level outcomes in regression models for cumulative incidence or state occupation probabilities.
 
 
-<img src="assets/logo.png" class="gd-hero-logo" style="max-height:128px" alt="Logo" />
+# Installation
 
-Add your description here
-
-
-    `pseudostate` computes Aalen-Johansen pseudo-observations at a fixed time
-    horizon. These pseudo-observations can be used as individual-level outcomes in
-    regression models for cumulative incidence or state occupation probabilities.
-
-    ## Installation
-
-    ```bash
-    pip install pseudostate
+``` bash
+pip install pseudostate
+```
 
 
 # A reproducible example
