@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="How pseudostate relates to pseudo-observation tools in R.">
 
-<title>Get started – pseudostate | pseudostate</title>
+<title>Package comparisons – pseudostate | pseudostate</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -64,24 +65,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./user-guide/package-comparisons.html" rel="next">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-bf476c94c8758bc321fd5fd3b984c438.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../index.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-bf476c94c8758bc321fd5fd3b984c438.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -109,9 +110,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
-
-<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <script>document.head.appendChild(Object.assign(document.createElement('link'),{rel:'stylesheet',href:(document.querySelector('meta[name="quarto:offset"]')||{content:''}).content+'termshow.css'}));</script>
 <script>document.head.appendChild(Object.assign(document.createElement('link'),{rel:'stylesheet',href:(document.querySelector('meta[name="quarto:offset"]')||{content:''}).content+'gd-lightbox.css'}));</script>
@@ -120,45 +118,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script>(function(){var s=document.createElement('script');var m=document.querySelector('meta[name="quarto:offset"]');s.src=(m?m.content:'')+'gd-lightbox-compare.js';s.defer=true;document.head.appendChild(s);})();</script>
 <script>document.head.appendChild(Object.assign(document.createElement('link'),{rel:'stylesheet',href:(document.querySelector('meta[name="quarto:offset"]')||{content:''}).content+'gd-lightbox-annotate.css'}));</script>
 <script>(function(){var s=document.createElement('script');var m=document.querySelector('meta[name="quarto:offset"]');s.src=(m?m.content:'')+'gd-lightbox-annotate.js';s.defer=true;document.head.appendChild(s);})();</script>
-<script src="theme-init.js"></script>
+<script src="../theme-init.js"></script>
 
 
-<link rel="stylesheet" href="classic.css">
-  <link rel="alternate" type="text/markdown" href="index.md">
-  <link rel="canonical" href="https://uriahf.github.io/pseudostate/">
-  <meta name="description" content="Add your description here">
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "SoftwareSourceCode",
-  "name": "pseudostate",
-  "description": "Add your description here",
-  "url": "https://uriahf.github.io/pseudostate",
-  "documentation": "https://uriahf.github.io/pseudostate",
-  "programmingLanguage": {
-    "@type": "ComputerLanguage",
-    "name": "Python"
-  }
-}
-</script>
+<link rel="stylesheet" href="../classic.css">
+  <link rel="alternate" type="text/markdown" href="package-comparisons.md">
+  <link rel="canonical" href="https://uriahf.github.io/pseudostate/user-guide/package-comparisons.html">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Get started – pseudostate | pseudostate">
-  <meta property="og:description" content="Add your description here">
-  <meta property="og:url" content="https://uriahf.github.io/pseudostate">
+  <meta property="og:title" content="Package comparisons – pseudostate | pseudostate">
+  <meta property="og:description" content="How pseudostate relates to pseudo-observation tools in R.">
+  <meta property="og:url" content="https://uriahf.github.io/pseudostate/user-guide/package-comparisons.html">
   <meta property="og:site_name" content="pseudostate">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Get started – pseudostate | pseudostate">
-  <meta name="twitter:description" content="Add your description here">
+  <meta name="twitter:title" content="Package comparisons – pseudostate | pseudostate">
+  <meta name="twitter:description" content="How pseudostate relates to pseudo-observation tools in R.">
 </head>
 
-<body class="nav-sidebar floating nav-fixed fullcontent quarto-light">
+<body class="nav-sidebar floating nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">pseudostate</span>
     </a>
   </div>
@@ -169,7 +152,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./reference/index.html"> 
+    <a class="nav-link" href="../reference/index.html"> 
 <span class="menu-text">Reference</span></a>
   </li>  
 </ul>
@@ -190,7 +173,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <h1 class="quarto-secondary-nav-title no-breadcrumbs">Get started</h1>
+        <h1 class="quarto-secondary-nav-title no-breadcrumbs">Package comparisons</h1>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -204,13 +187,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Get started</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./user-guide/package-comparisons.html" class="sidebar-item-text sidebar-link">
+  <a href="../user-guide/package-comparisons.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Package comparisons</span></a>
   </div>
 </li>
@@ -219,15 +202,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#at-a-glance" id="toc-at-a-glance" class="nav-link active" data-scroll-target="#at-a-glance">At a glance</a></li>
+  <li><a href="#the-same-competing-risk-data" id="toc-the-same-competing-risk-data" class="nav-link" data-scroll-target="#the-same-competing-risk-data">The same competing-risk data</a></li>
+  <li><a href="#which-should-you-use" id="toc-which-should-you-use" class="nav-link" data-scroll-target="#which-should-you-use">Which should you use?</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Get started</h1>
+<h1 class="title d-none d-lg-block">Package comparisons</h1>
 </div>
 
+<div>
+  <div class="description">
+    How pseudostate relates to pseudo-observation tools in R.
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
@@ -242,69 +241,147 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p><img src="assets/package-mark.png" class="homepage-logo img-fluid" alt="pseudostate logo"></p>
-<p><code>pseudostate</code> computes Aalen–Johansen pseudo-observations at a fixed time horizon. These pseudo-observations can be used as individual-level outcomes in regression models for cumulative incidence or state occupation probabilities.</p>
-<section id="installation" class="level1">
-<h1>Installation</h1>
-<p>With <a href="https://docs.astral.sh/uv/">uv</a>:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> add pseudostate</span></code></pre></div>
-<p>Alternatively, with pip:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install pseudostate</span></code></pre></div>
-</section>
-<section id="a-reproducible-example" class="level1">
-<h1>A reproducible example</h1>
-<div id="54ee56c5" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pseudostate <span class="im">import</span> calculate_pseudostates</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>times_and_reals <span class="op">=</span> pl.DataFrame(</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    {</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">"times"</span>: [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>],</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>        <span class="st">"reals"</span>: [<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">1</span>],</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>calculate_pseudostates(times_and_reals, fixed_time_horizon<span class="op">=</span><span class="dv">5</span>)</span></code></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="1">
-<div><style>
-.dataframe > thead > tr,
-.dataframe > tbody > tr {
-  text-align: right;
-  white-space: pre-wrap;
-}
-</style>
-<small>shape: (7, 6)</small><table class="dataframe table table-sm table-striped small"><thead><tr><th>estimate_origin</th><th>times</th><th>state_occupancy_probability_0</th><th>state_occupancy_probability_1</th><th>state_occupancy_probability_2</th><th>row_id</th></tr><tr><td>enum</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>i32</td></tr></thead><tbody><tr><td>"fixed_time_horizons"</td><td>5.0</td><td>0.0</td><td>1.0</td><td>4.4409e-16</td><td>0</td></tr><tr><td>"fixed_time_horizons"</td><td>5.0</td><td>0.375</td><td>0.25</td><td>0.375</td><td>1</td></tr><tr><td>"fixed_time_horizons"</td><td>5.0</td><td>0.0</td><td>0.0</td><td>1.0</td><td>2</td></tr><tr><td>"fixed_time_horizons"</td><td>5.0</td><td>-0.125</td><td>1.25</td><td>-0.125</td><td>3</td></tr><tr><td>"fixed_time_horizons"</td><td>5.0</td><td>0.541667</td><td>-0.083333</td><td>0.541667</td><td>4</td></tr><tr><td>"fixed_time_horizons"</td><td>5.0</td><td>-0.791667</td><td>-0.083333</td><td>1.875</td><td>5</td></tr><tr><td>"fixed_time_horizons"</td><td>5.0</td><td>1.875</td><td>-0.083333</td><td>-0.791667</td><td>6</td></tr></tbody></table></div>
+<p><code>pseudostate</code> follows the same pseudo-observation idea used by established R packages, but provides a focused, Polars-native Python interface. The packages below overlap, but they are not interchangeable in every analysis.</p>
+<section id="at-a-glance" class="level1">
+<h1>At a glance</h1>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th><code>pseudostate</code></th>
+<th>R <code>pseudo</code></th>
+<th>R <code>survival::pseudo()</code></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Main interface</td>
+<td>Polars DataFrame</td>
+<td>R vectors</td>
+<td>A fitted <code>survfit</code> object</td>
+</tr>
+<tr class="even">
+<td>Calculation</td>
+<td>Delete-one jackknife</td>
+<td>Delete-one jackknife</td>
+<td>Infinitesimal jackknife</td>
+</tr>
+<tr class="odd">
+<td>State probabilities</td>
+<td>Yes</td>
+<td>CIFs by cause; survival separately</td>
+<td>Yes</td>
+</tr>
+<tr class="even">
+<td>Horizons per call</td>
+<td>One fixed horizon</td>
+<td>One or more</td>
+<td>One or more</td>
+</tr>
+<tr class="odd">
+<td>Other estimands</td>
+<td>No</td>
+<td>Restricted mean and years lost</td>
+<td>Cumulative hazard and sojourn time</td>
+</tr>
+<tr class="even">
+<td>Natural fit</td>
+<td>Focused Python/Polars workflow</td>
+<td>Established R pseudo-observation workflow</td>
+<td>Fast integration with R <code>survival</code></td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Exact and infinitesimal-jackknife values
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>pseudostate</code> and R’s <code>pseudo</code> package construct ordinary delete-one jackknife pseudo-observations. <code>survival::pseudo()</code> uses an infinitesimal-jackknife approximation. Its documentation notes that the two are nearly identical for moderate to large samples, but they need not be exactly equal in a small example.</p>
 </div>
 </div>
 </section>
-<section id="background" class="level1">
-<h1>Background</h1>
-<p>The theoretical foundation for pseudo-observations in multi-state models was laid out by Andersen, Klein, and Rosthøj (2003), <em>Generalised linear models for correlated pseudo-observations, with applications to multi-state models</em>, <em>Biometrika</em>, 90(1), 15–27.</p>
-<p>The <a href="https://cran.r-project.org/package=pseudo"><code>pseudo</code></a> R package provides a widely used implementation of this approach.</p>
-<div class="gd-meta-sidebar">
-<section id="links" class="level3">
-<h3 class="anchored" data-anchor-id="links">Links</h3>
-<p><a href="https://pypi.org/project/pseudostate/">View on PyPI<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -0.05em; margin-left: 0em; margin-top: 0.1em;" viewbox="0 0 24 24"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></a><br></p>
-</section>
-<section id="ai-agents" class="level3">
-<h3 class="anchored" data-anchor-id="ai-agents">AI / Agents</h3>
-<p><a href="skills.html">Skills<svg class="gd-sparkle" xmlns="http://www.w3.org/2000/svg" width="0.85em" height="0.85em" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -0.1em; margin-left: 0.25em;"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.582a.5.5 0 0 1 0 .963L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"></path><path d="M20 3v4"></path><path d="M22 5h-4"></path></svg></a><br> <a href="llms.txt">llms.txt</a><br> <a href="llms-full.txt">llms-full.txt</a><br></p>
-</section>
-<section id="developers" class="level3">
-<h3 class="anchored" data-anchor-id="developers">Developers</h3>
-<div>
-<span>
-<p>
-<strong style="padding-bottom: 4px;">Uriah Finkel</strong>
-</p>
-</span><span style="margin-top: -0.15em; display: block;"><a href="mailto:ufinkel@gmail.com" title="Email"><i class="bi bi-envelope-fill"></i></a></span>
+<section id="the-same-competing-risk-data" class="level1">
+<h1>The same competing-risk data</h1>
+<p>The tabs below express the same task: calculate subject-level pseudo-observations for state probabilities at time 5.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">pseudostate (Python 🐍)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">pseudo (R 🔵)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">survival (R 🔵)</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pseudostate <span class="im">import</span> calculate_pseudostates</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>observations <span class="op">=</span> pl.DataFrame(</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    {</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">"times"</span>: [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>],</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        <span class="st">"reals"</span>: [<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">1</span>],</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>calculate_pseudostates(</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    observations,</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    fixed_time_horizon<span class="op">=</span><span class="dv">5</span>,</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<p>The result is a Polars DataFrame with one row per observation and a pseudo-observation for every state.</p>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pseudo)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>time <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>event <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">1</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>values <span class="ot">&lt;-</span> <span class="fu">pseudoci</span>(</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">time =</span> time,</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">event =</span> event,</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">tmax =</span> <span class="dv">5</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>values<span class="sc">$</span>pseudo</span></code></pre></div>
+<p><code>pseudoci()</code> returns a list of matrices indexed by event cause. For ordinary survival pseudo-observations, the package instead provides <code>pseudosurv()</code>.</p>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(survival)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>observations <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">time =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>),</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">event =</span> <span class="fu">factor</span>(</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">1</span>),</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>),</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"censor"</span>, <span class="st">"event"</span>, <span class="st">"competing"</span>)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">survfit</span>(</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">Surv</span>(time, event) <span class="sc">~</span> <span class="dv">1</span>,</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> observations</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="fu">pseudo</span>(</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>  fit,</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">times =</span> <span class="dv">5</span>,</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">"pstate"</span>,</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">data.frame =</span> <span class="cn">TRUE</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<p>This route first creates an Aalen–Johansen <code>survfit</code> object and then derives infinitesimal-jackknife pseudo-values from it.</p>
+</div>
+</div>
 </div>
 </section>
-<section id="meta" class="level3">
-<h3 class="anchored" data-anchor-id="meta">Meta</h3>
-<p><strong>Requires:</strong> Python <code>&gt;=3.13</code><br> <a href="package-info.html">Package Info</a></p>
+<section id="which-should-you-use" class="level1">
+<h1>Which should you use?</h1>
+<p>Use <code>pseudostate</code> when the surrounding workflow is Python and Polars and you need transparent state-probability pseudo-observations at a fixed horizon. Use R’s <code>pseudo</code> when you need its broader set of pseudo-observation estimands or several horizons in one call. Use <code>survival::pseudo()</code> when the analysis already uses <code>survfit</code>, or when its fast infinitesimal-jackknife calculation and richer multi-state infrastructure are useful.</p>
 </section>
-</div>
+<section id="references" class="level1">
+<h1>References</h1>
+<ul>
+<li><a href="https://cran.r-project.org/package=pseudo">R <code>pseudo</code> package manual</a></li>
+<li><a href="https://rdrr.io/cran/survival/man/pseudo.html">R <code>survival::pseudo()</code> documentation</a></li>
+</ul>
 
 
 </section>
@@ -650,11 +727,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="../index.html" class="pagination-link" aria-label="Get started">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Get started</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./user-guide/package-comparisons.html" class="pagination-link" aria-label="Package comparisons">
-        <span class="nav-page-text">Package comparisons</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
@@ -665,23 +742,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </footer>
-<script src="github-widget.js"></script>
-<script src="sidebar-wrap.js"></script>
+<script src="../github-widget.js"></script>
+<script src="../copy-page.js"></script>
+<script src="../sidebar-wrap.js"></script>
 <script>(function(){var s=document.createElement('script');var m=document.querySelector('meta[name="quarto:offset"]');s.src=(m?m.content:'')+'sidebar-float.js';document.body.appendChild(s);})();</script>
-<script src="sidebar-filter.js"></script>
-<script src="dark-mode-toggle.js"></script>
-<script src="back-to-top.js"></script>
+<script src="../sidebar-filter.js"></script>
+<script src="../dark-mode-toggle.js"></script>
+<script src="../back-to-top.js"></script>
 <script>(function(){var s=document.createElement('script');var m=document.querySelector('meta[name="quarto:offset"]');s.src=(m?m.content:'')+'on-this-page.js';document.body.appendChild(s);})();</script>
-<script src="keyboard-nav.js"></script>
-<script src="copy-code.js"></script>
-<script src="details.js"></script>
-<script src="mermaid-renderer.js"></script>
-<script src="tooltips.js"></script>
+<script src="../keyboard-nav.js"></script>
+<script src="../copy-code.js"></script>
+<script src="../details.js"></script>
+<script src="../mermaid-renderer.js"></script>
+<script src="../tooltips.js"></script>
 <script>(function(){var s=document.createElement('script');var m=document.querySelector('meta[name="quarto:offset"]');s.src=(m?m.content:'')+'color-swatch.js';document.body.appendChild(s);})();</script>
-<script src="responsive-tables.js"></script>
+<script src="../responsive-tables.js"></script>
 <script>(function(){var s=document.createElement('script');var m=document.querySelector('meta[name="quarto:offset"]');s.src=(m?m.content:'')+'video-embed.js';document.body.appendChild(s);})();</script>
 <script>(function(){var s=document.createElement('script');var m=document.querySelector('meta[name="quarto:offset"]');s.src=(m?m.content:'')+'termshow.js';document.body.appendChild(s);})();</script>
-<script src="navbar-widgets.js"></script>
+<script src="../navbar-widgets.js"></script>
 
 
 
