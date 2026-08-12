@@ -237,6 +237,34 @@ infinitesimal-jackknife pseudo-values from it.
 
 :::
 
+## Visible comparison output
+
+For the delete-one jackknife calculation, `pseudostate` and
+`pseudo::pseudoci()` produce the same event-specific pseudo-observations
+(up to floating-point rounding). `pseudostate` additionally returns the
+initial-state value in the same table.
+
+| Row | State 0 | Event 1 | Event 2 |
+|---:|---:|---:|---:|
+| 0 | 0.000000 | 1.000000 | 0.000000 |
+| 1 | 0.375000 | 0.250000 | 0.375000 |
+| 2 | 0.000000 | 0.000000 | 1.000000 |
+| 3 | -0.125000 | 1.250000 | -0.125000 |
+| 4 | 0.541667 | -0.083333 | 0.541667 |
+| 5 | -0.791667 | -0.083333 | 1.875000 |
+| 6 | 1.875000 | -0.083333 | -0.791667 |
+| **Mean** | **0.267857** | **0.321429** | **0.410714** |
+
+The mean row is the full-sample Aalen–Johansen estimate at time 5. Values
+outside the interval from 0 to 1 are possible and valid for
+pseudo-observations: each value is a jackknife contribution, not an individual
+predicted probability.
+
+The `survival::pseudo()` output has the same rows, states, and target
+full-sample estimate, but uses the infinitesimal jackknife. On this small data
+set its subject-level values can differ slightly from the delete-one values
+shown above.
+
 ## Which should you use?
 
 Use `pseudostate` when the surrounding workflow is Python and Polars and you

@@ -82,7 +82,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-bf476c94c8758bc321fd5fd3b984c438.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-360b2068b25b2f2099f2f47bce35ebf0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -209,6 +209,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#at-a-glance" id="toc-at-a-glance" class="nav-link active" data-scroll-target="#at-a-glance">At a glance</a></li>
   <li><a href="#the-same-competing-risk-data" id="toc-the-same-competing-risk-data" class="nav-link" data-scroll-target="#the-same-competing-risk-data">The same competing-risk data</a></li>
+  <li><a href="#visible-comparison-output" id="toc-visible-comparison-output" class="nav-link" data-scroll-target="#visible-comparison-output">Visible comparison output</a></li>
   <li><a href="#which-should-you-use" id="toc-which-should-you-use" class="nav-link" data-scroll-target="#which-should-you-use">Which should you use?</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
@@ -371,6 +372,72 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+</section>
+<section id="visible-comparison-output" class="level1">
+<h1>Visible comparison output</h1>
+<p>For the delete-one jackknife calculation, <code>pseudostate</code> and <code>pseudo::pseudoci()</code> produce the same event-specific pseudo-observations (up to floating-point rounding). <code>pseudostate</code> additionally returns the initial-state value in the same table.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: right;">Row</th>
+<th style="text-align: right;">State 0</th>
+<th style="text-align: right;">Event 1</th>
+<th style="text-align: right;">Event 2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.000000</td>
+<td style="text-align: right;">1.000000</td>
+<td style="text-align: right;">0.000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.375000</td>
+<td style="text-align: right;">0.250000</td>
+<td style="text-align: right;">0.375000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.000000</td>
+<td style="text-align: right;">0.000000</td>
+<td style="text-align: right;">1.000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">-0.125000</td>
+<td style="text-align: right;">1.250000</td>
+<td style="text-align: right;">-0.125000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0.541667</td>
+<td style="text-align: right;">-0.083333</td>
+<td style="text-align: right;">0.541667</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">-0.791667</td>
+<td style="text-align: right;">-0.083333</td>
+<td style="text-align: right;">1.875000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">1.875000</td>
+<td style="text-align: right;">-0.083333</td>
+<td style="text-align: right;">-0.791667</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>Mean</strong></td>
+<td style="text-align: right;"><strong>0.267857</strong></td>
+<td style="text-align: right;"><strong>0.321429</strong></td>
+<td style="text-align: right;"><strong>0.410714</strong></td>
+</tr>
+</tbody>
+</table>
+<p>The mean row is the full-sample Aalen–Johansen estimate at time 5. Values outside the interval from 0 to 1 are possible and valid for pseudo-observations: each value is a jackknife contribution, not an individual predicted probability.</p>
+<p>The <code>survival::pseudo()</code> output has the same rows, states, and target full-sample estimate, but uses the infinitesimal jackknife. On this small data set its subject-level values can differ slightly from the delete-one values shown above.</p>
 </section>
 <section id="which-should-you-use" class="level1">
 <h1>Which should you use?</h1>
