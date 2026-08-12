@@ -1,30 +1,30 @@
 {
-  "build_time": "2026-08-12T11:11:20Z",
-  "total_seconds": 9.359,
+  "build_time": "2026-08-12T11:12:49Z",
+  "total_seconds": 9.647,
   "pages": [
     {
       "page": "index.qmd",
-      "seconds": 6.546,
+      "seconds": 7.029,
       "frozen": true
     },
     {
       "page": "skills.qmd",
-      "seconds": 1.485,
+      "seconds": 1.369,
       "frozen": false
     },
     {
       "page": "reference/calculate_pseudostates.qmd",
-      "seconds": 0.509,
+      "seconds": 0.46,
       "frozen": false
     },
     {
       "page": "package-info.qmd",
-      "seconds": 0.41,
+      "seconds": 0.4,
       "frozen": false
     },
     {
       "page": "reference/index.qmd",
-      "seconds": 0.409,
+      "seconds": 0.389,
       "frozen": false
     }
   ]
