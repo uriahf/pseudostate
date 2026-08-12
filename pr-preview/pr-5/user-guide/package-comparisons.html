@@ -82,7 +82,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-360b2068b25b2f2099f2f47bce35ebf0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-bf476c94c8758bc321fd5fd3b984c438.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -328,7 +328,61 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    observations,</span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    fixed_time_horizon<span class="op">=</span><span class="dv">5</span>,</span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
-<p>The result is a Polars DataFrame with one row per observation and a pseudo-observation for every state.</p>
+<p><strong>Output</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: right;">row_id</th>
+<th style="text-align: right;">State 0</th>
+<th style="text-align: right;">Event 1</th>
+<th style="text-align: right;">Event 2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.000000</td>
+<td style="text-align: right;">1.000000</td>
+<td style="text-align: right;">0.000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.375000</td>
+<td style="text-align: right;">0.250000</td>
+<td style="text-align: right;">0.375000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.000000</td>
+<td style="text-align: right;">0.000000</td>
+<td style="text-align: right;">1.000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">-0.125000</td>
+<td style="text-align: right;">1.250000</td>
+<td style="text-align: right;">-0.125000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0.541667</td>
+<td style="text-align: right;">-0.083333</td>
+<td style="text-align: right;">0.541667</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">-0.791667</td>
+<td style="text-align: right;">-0.083333</td>
+<td style="text-align: right;">1.875000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">1.875000</td>
+<td style="text-align: right;">-0.083333</td>
+<td style="text-align: right;">-0.791667</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pseudo)</span>
@@ -343,7 +397,86 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>values<span class="sc">$</span>pseudo</span></code></pre></div>
-<p><code>pseudoci()</code> returns a list of matrices indexed by event cause. For ordinary survival pseudo-observations, the package instead provides <code>pseudosurv()</code>.</p>
+<p><strong>Output</strong></p>
+<p><code>values$pseudo[[1]]</code> (event 1):</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: right;">Subject</th>
+<th style="text-align: right;">Pseudo-observation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1.000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.250000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">1.250000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">-0.083333</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">-0.083333</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">-0.083333</td>
+</tr>
+</tbody>
+</table>
+<p><code>values$pseudo[[2]]</code> (event 2):</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: right;">Subject</th>
+<th style="text-align: right;">Pseudo-observation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.375000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1.000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">-0.125000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.541667</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">1.875000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">-0.791667</td>
+</tr>
+</tbody>
+</table>
+<p>These are the same delete-one event-specific values shown in the <code>pseudostate</code> output, up to rounding.</p>
 </div>
 <div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(survival)</span>
@@ -368,7 +501,44 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">"pstate"</span>,</span>
 <span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">data.frame =</span> <span class="cn">TRUE</span></span>
 <span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
-<p>This route first creates an Aalen–Johansen <code>survfit</code> object and then derives infinitesimal-jackknife pseudo-values from it.</p>
+<p><strong>Output structure</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: right;">id</th>
+<th style="text-align: right;">time</th>
+<th>state</th>
+<th style="text-align: right;">pseudo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">5</td>
+<td>Initial state</td>
+<td style="text-align: right;">IJ value</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">5</td>
+<td>Event 1</td>
+<td style="text-align: right;">IJ value</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">5</td>
+<td>Event 2</td>
+<td style="text-align: right;">IJ value</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">…</td>
+<td style="text-align: right;">…</td>
+<td>…</td>
+<td style="text-align: right;">…</td>
+</tr>
+</tbody>
+</table>
+<p>The returned long table contains one row per subject and state. The mean pseudo-value for the three states is respectively <strong>0.267857</strong>, <strong>0.321429</strong>, and <strong>0.410714</strong>, matching the full-sample Aalen–Johansen estimate. Subject-level values are not printed as equal to the tables above because this function uses the infinitesimal jackknife rather than delete-one refitting.</p>
 </div>
 </div>
 </div>

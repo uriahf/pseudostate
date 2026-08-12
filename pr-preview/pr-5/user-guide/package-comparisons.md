@@ -46,7 +46,17 @@ calculate_pseudostates(
 )
 ```
 
-The result is a Polars DataFrame with one row per observation and a pseudo-observation for every state.
+**Output**
+
+| row_id |   State 0 |   Event 1 |   Event 2 |
+|-------:|----------:|----------:|----------:|
+|      0 |  0.000000 |  1.000000 |  0.000000 |
+|      1 |  0.375000 |  0.250000 |  0.375000 |
+|      2 |  0.000000 |  0.000000 |  1.000000 |
+|      3 | -0.125000 |  1.250000 | -0.125000 |
+|      4 |  0.541667 | -0.083333 |  0.541667 |
+|      5 | -0.791667 | -0.083333 |  1.875000 |
+|      6 |  1.875000 | -0.083333 | -0.791667 |
 
 
 ``` r
@@ -64,7 +74,33 @@ values <- pseudoci(
 values$pseudo
 ```
 
-`pseudoci()` returns a list of matrices indexed by event cause. For ordinary survival pseudo-observations, the package instead provides `pseudosurv()`.
+**Output**
+
+`values$pseudo[[1]]` (event 1):
+
+| Subject | Pseudo-observation |
+|--------:|-------------------:|
+|       1 |           1.000000 |
+|       2 |           0.250000 |
+|       3 |           0.000000 |
+|       4 |           1.250000 |
+|       5 |          -0.083333 |
+|       6 |          -0.083333 |
+|       7 |          -0.083333 |
+
+`values$pseudo[[2]]` (event 2):
+
+| Subject | Pseudo-observation |
+|--------:|-------------------:|
+|       1 |           0.000000 |
+|       2 |           0.375000 |
+|       3 |           1.000000 |
+|       4 |          -0.125000 |
+|       5 |           0.541667 |
+|       6 |           1.875000 |
+|       7 |          -0.791667 |
+
+These are the same delete-one event-specific values shown in the `pseudostate` output, up to rounding.
 
 
 ``` r
@@ -92,7 +128,16 @@ pseudo(
 )
 ```
 
-This route first creates an Aalen-Johansen `survfit` object and then derives infinitesimal-jackknife pseudo-values from it.
+**Output structure**
+
+|  id | time | state         |   pseudo |
+|----:|-----:|---------------|---------:|
+|   1 |    5 | Initial state | IJ value |
+|   1 |    5 | Event 1       | IJ value |
+|   1 |    5 | Event 2       | IJ value |
+|   … |    … | …             |        … |
+
+The returned long table contains one row per subject and state. The mean pseudo-value for the three states is respectively **0.267857**, **0.321429**, and **0.410714**, matching the full-sample Aalen-Johansen estimate. Subject-level values are not printed as equal to the tables above because this function uses the infinitesimal jackknife rather than delete-one refitting.
 
 
 # Visible comparison output
