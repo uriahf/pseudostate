@@ -6,7 +6,7 @@ The `pseudostate` library is a Python package for computing pseudo-observations 
 
 ## Coding Style and Conventions
 
-- **Docstrings**: All exported functions must have `numpydoc`-style docstrings to ensure compatibility with `quartodoc`.
+- **Docstrings**: All exported functions must have NumPy-style docstrings so Great Docs can generate the API reference.
 - **Formatting**: Code should be formatted with `ruff format`.
 - **Linting**: Code should be checked with `ruff check`.
 
@@ -21,6 +21,16 @@ The `pseudostate` library is a Python package for computing pseudo-observations 
 The project uses GitHub Actions for CI/CD. The CI pipeline runs on every push and pull request and executes the following checks:
 
 - Runs the test suite with `pytest`.
+
+## Documentation
+
+Documentation is built with Great Docs and Quarto.
+
+- Great Docs configuration: `great-docs.yml`
+- Narrative guides: `user_guide/`
+- Local build: `uv sync --group docs` followed by `uv run great-docs build`
+- Pull requests receive a rendered preview under the repository's GitHub Pages site.
+- Merges to `master` publish the production documentation automatically.
 
 ## How to Contribute
 
