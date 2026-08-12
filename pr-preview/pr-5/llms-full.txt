@@ -74,3 +74,47 @@ References
 .. [1] Andersen, P. K., & Pohar Perme, M. (2010).
    Pseudo-observations in survival analysis.
    *Statistical Methods in Medical Research*, 19(1), 71–99.
+
+
+----------------------------------------------------------------------
+This is the User Guide documentation for the package.
+----------------------------------------------------------------------
+
+### Get started
+
+`pseudostate` computes Aalen–Johansen pseudo-observations at a fixed time
+horizon. These pseudo-observations can be used as individual-level outcomes in
+regression models for cumulative incidence or state occupation probabilities.
+
+## Installation
+
+```bash
+pip install pseudostate
+```
+
+## A reproducible example
+
+```{python}
+import polars as pl
+from pseudostate import calculate_pseudostates
+
+times_and_reals = pl.DataFrame(
+    {
+        "times": [1, 2, 2, 3, 4, 5, 6],
+        "reals": [1, 0, 2, 1, 0, 2, 1],
+    }
+)
+
+calculate_pseudostates(times_and_reals, fixed_time_horizon=5)
+```
+
+## Background
+
+The theoretical foundation for pseudo-observations in multi-state models was
+laid out by Andersen, Klein, and Rosthøj (2003), *Generalised linear models for
+correlated pseudo-observations, with applications to multi-state models*,
+*Biometrika*, 90(1), 15–27.
+
+The [`pseudo`](https://cran.r-project.org/package=pseudo) R package provides a
+widely used implementation of this approach.
+
