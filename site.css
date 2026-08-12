@@ -1,97 +1,96 @@
-@import url("https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;600&family=Fraunces:opsz,wght@9..144,600;9..144,700&family=JetBrains+Mono:wght@400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=JetBrains+Mono:wght@400;500&family=Lato:wght@400;700&display=swap");
 
 :root {
-  --state-bg: #f7fbfd;
-  --state-surface: #ffffff;
-  --state-soft: #e8f3f8;
-  --state-primary: #0f3b5f;
-  --state-accent: #1f6f92;
-  --state-border: #c8dfe9;
-  --state-text: #17242d;
-  --state-muted: #5c7180;
-  --state-shadow: 0 10px 28px rgba(15, 59, 95, 0.08);
+  --ps-white: #f7fbfd;
+  --ps-ink: #0e1419;
+  --ps-blue: #0f3b5f;
+  --ps-link: #1f5f82;
+  --ps-wash: #e6f1f6;
+  --ps-line: #d7e5ec;
 }
 
 body {
-  background: var(--state-bg);
-  color: var(--state-text);
-  font-family: "Commissioner", system-ui, sans-serif;
+  background: var(--ps-white);
+  color: var(--ps-ink);
+  font-family: "Lato", system-ui, sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6,
 .navbar-brand, .quarto-title-block .title, .sidebar-title {
-  color: var(--state-primary);
+  color: var(--ps-blue);
   font-family: "Fraunces", Georgia, serif;
   font-weight: 700;
-  letter-spacing: -0.015em;
+  line-height: 1.2;
 }
 
 a {
-  color: var(--state-accent);
-  text-decoration-color: rgba(31, 111, 146, 0.35);
+  color: var(--ps-link);
+  text-decoration-color: rgba(31, 95, 130, 0.35);
   text-underline-offset: 0.14em;
 }
 
-a:hover, a:focus-visible { color: var(--state-primary); }
-
 .navbar, .navbar-dark, .navbar-light {
-  background: rgba(247, 251, 253, 0.96) !important;
-  border-bottom: 1px solid var(--state-border);
-  box-shadow: 0 5px 18px rgba(15, 59, 95, 0.05);
-  backdrop-filter: blur(12px);
+  background: var(--ps-white) !important;
+  border-bottom: 1px solid var(--ps-line);
+  box-shadow: none;
 }
 
 .navbar-brand, .navbar .nav-link, .navbar .navbar-title {
-  color: var(--state-primary) !important;
+  color: var(--ps-blue) !important;
 }
 
 .navbar .nav-link:hover, .navbar .nav-link.active {
-  color: var(--state-accent) !important;
+  color: var(--ps-link) !important;
 }
 
 #quarto-sidebar, .sidebar, .quarto-secondary-nav {
-  background: var(--state-bg);
-  border-color: var(--state-border);
+  background: var(--ps-white);
+  border-color: var(--ps-line);
 }
 
-.sidebar-item a, .sidebar-navigation a { border-radius: 0.55rem; }
+.sidebar-item a, .sidebar-navigation a { border-radius: 0.2rem; }
 .sidebar-item a:hover, .sidebar-item a.active,
 .sidebar-navigation a:hover, .sidebar-navigation a.active {
-  background: var(--state-soft);
-  color: var(--state-accent) !important;
+  background: var(--ps-wash);
+  color: var(--ps-link) !important;
 }
 
-.quarto-title-block, .gd-group-card, .gd-api-card, .card, .callout {
-  background: var(--state-surface);
-  border-color: var(--state-border) !important;
-  border-radius: 0.9rem;
-  box-shadow: var(--state-shadow);
+.quarto-title-block {
+  background: transparent;
+  border: 0 !important;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
 }
 
-.quarto-title-block { padding: 1.25rem 1.4rem; }
+.gd-group-card, .gd-api-card, .card, .callout {
+  background: #fff;
+  border: 1px solid var(--ps-line) !important;
+  border-radius: 0.35rem;
+  box-shadow: none;
+}
 
 blockquote {
-  background: var(--state-soft);
-  border-left: 4px solid var(--state-primary);
-  border-radius: 0 0.7rem 0.7rem 0;
-  padding: 0.85rem 1.1rem;
+  background: var(--ps-wash);
+  border-left: 3px solid var(--ps-link);
+  border-radius: 0;
 }
 
 pre, div.sourceCode {
-  background: #fcfeff;
-  border-color: var(--state-border) !important;
-  border-radius: 0.75rem;
+  background: #fff;
+  border: 1px solid var(--ps-line) !important;
+  border-radius: 0.3rem;
+  box-shadow: none;
 }
 
 code { font-family: "JetBrains Mono", monospace; }
 code:not(.sourceCode) {
-  background: var(--state-soft);
-  color: #154f70;
-  border-radius: 0.35rem;
+  background: var(--ps-wash);
+  color: var(--ps-blue);
+  border-radius: 0.15rem;
 }
 
 .page-footer, footer.footer {
-  background: var(--state-surface);
-  border-top: 1px solid var(--state-border);
-  color: var(--state-muted);
+  background: var(--ps-white);
+  border-top: 1px solid var(--ps-line);
 }
