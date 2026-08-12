@@ -1,0 +1,17 @@
+display_name: pseudostate
+parser: numpy
+repo: https://github.com/uriahf/pseudostate
+user_guide: user_guide
+homepage: user_guide
+site_url: https://uriahf.github.io/pseudostate/
+
+source:
+  enabled: true
+  branch: master
+  placement: usage
+
+reference:
+  - title: Pseudo-observations
+    desc: Compute jackknife pseudo-observations for state occupation probabilities.
+    contents:
+      - calculate_pseudostates
