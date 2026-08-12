@@ -1,6 +1,6 @@
 # Get started
 
-<img src="../assets/logo.png" class="homepage-logo img-fluid" alt="pseudostate logo" />
+<img src="assets/package-mark.png" class="homepage-logo img-fluid" alt="pseudostate logo" />
 
 `pseudostate` computes Aalen-Johansen pseudo-observations at a fixed time horizon. These pseudo-observations can be used as individual-level outcomes in regression models for cumulative incidence or state occupation probabilities.
 
