@@ -2,7 +2,7 @@
 title: Get started
 ---
 
-![](../assets/logo.png){.homepage-logo fig-alt="pseudostate logo"}
+![](assets/package-mark.png){.homepage-logo fig-alt="pseudostate logo"}
 
 `pseudostate` computes Aalen–Johansen pseudo-observations at a fixed time
 horizon. These pseudo-observations can be used as individual-level outcomes in
