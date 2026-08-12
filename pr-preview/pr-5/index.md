@@ -7,6 +7,14 @@
 
 # Installation
 
+With [uv](https://docs.astral.sh/uv/):
+
+``` bash
+uv add pseudostate
+```
+
+Alternatively, with pip:
+
 ``` bash
 pip install pseudostate
 ```
