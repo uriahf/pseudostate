@@ -1,0 +1,11 @@
+{
+  "skills": [
+    {
+      "name": "pseudostate",
+      "description": "Add your description here. Use when writing Python code that uses the pseudostate package.",
+      "files": [
+        "SKILL.md"
+      ]
+    }
+  ]
+}
