@@ -1,9 +1,0 @@
-# pseudostate
-
-> Add your description here
-
-## Docs
-
-### API Reference
-
-- [calculate_pseudostates](https://uriahf.github.io/pseudostate/reference/calculate_pseudostates.html): Compute Aalen Johansen pseudo-observations at a fixed time horizon
