@@ -1,5 +1,0 @@
-# Function reference {.doc .doc-index}
-
-## Getting Started
-
-Introduction to the package.
