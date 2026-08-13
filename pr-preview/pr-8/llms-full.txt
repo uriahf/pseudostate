@@ -1,0 +1,300 @@
+----------------------------------------------------------------------
+This is the API documentation for the pseudostate library.
+----------------------------------------------------------------------
+
+
+## Pseudo-observations
+
+Compute exact or infinitesimal-jackknife pseudo-observations.
+
+
+calculate_pseudostates(times_and_reals: polars.dataframe.frame.DataFrame, fixed_time_horizon: int) -> polars.dataframe.frame.DataFrame
+
+Compute Aalen Johansen pseudo-observations at a fixed time horizon.
+
+This function computes jackknife pseudo-observations for state
+occupation probabilities (or related Aalen Johansen estimands)
+evaluated at a fixed time horizon. Pseudo-observations are constructed
+using a leave-one-out scheme:
+
+.. math::
+
+    \text{pseudo}_i = n \cdot \theta_{\text{full}} - (n - 1) \cdot \theta_{(-i)}
+
+where :math:`\theta_{\text{full}}` is the Aalen Johansen estimate based on the full
+sample, and :math:`\theta_{(-i)}` is the estimate obtained after removing
+individual :math:`i`.
+
+The resulting pseudo-observations can be used as individual-level
+outcomes in regression models (e.g., GEE or GLM) to assess covariate
+effects on cumulative incidence or state occupation probabilities.
+
+Parameters
+----------
+times_and_reals : pl.DataFrame
+    Input data containing individual event times and realized states.
+    Must be compatible with ``prepare_event_table`` and
+    ``predict_aj_estimates``. Each row corresponds to a single
+    individual.
+fixed_time_horizon : int
+    Time point at which the Aalen Johansen estimates are evaluated.
+
+Returns
+-------
+pl.DataFrame
+    A Polars DataFrame containing pseudo-observations for each
+    individual. The output includes:
+
+    - Identifier columns (e.g., state, time, horizon) copied from the
+      full-sample Aalen Johansen estimate.
+    - Numeric columns containing the pseudo-observations.
+    - A ``row_id`` column indicating the index of the left-out
+      observation.
+
+    For each numeric column, the mean of the pseudo-observations equals
+    the corresponding full-sample Aalen Johansen estimate.
+
+See Also
+--------
+polarstate.prepare_event_table : Convert raw data into an event table.
+polarstate.predict_aj_estimates : Predict Aalen-Johansen estimates.
+
+Notes
+-----
+- This implementation uses an explicit leave-one-out loop and therefore
+  has time complexity O(n²). It is intended for methodological work,
+  simulations, or moderate sample sizes.
+- In the absence of censoring, the pseudo-observations reduce to the
+  empirical individual contributions.
+- Non-numeric columns (e.g., state labels) are treated as identifiers
+  and are not transformed.
+
+References
+----------
+.. [1] Andersen, P. K., & Pohar Perme, M. (2010).
+   Pseudo-observations in survival analysis.
+   *Statistical Methods in Medical Research*, 19(1), 71–99.
+
+
+----------------------------------------------------------------------
+This is the User Guide documentation for the package.
+----------------------------------------------------------------------
+
+### Get started
+
+![](assets/package-mark.png){.homepage-logo fig-alt="pseudostate logo"}
+
+`pseudostate` computes Aalen–Johansen pseudo-observations at a fixed time
+horizon. These pseudo-observations can be used as individual-level outcomes in
+regression models for cumulative incidence or state occupation probabilities.
+
+## Installation
+
+With [uv](https://docs.astral.sh/uv/):
+
+```bash
+uv add pseudostate
+```
+
+Alternatively, with pip:
+
+```bash
+pip install pseudostate
+```
+
+## A reproducible example
+
+```{python}
+import polars as pl
+from pseudostate import calculate_pseudostates
+
+times_and_reals = pl.DataFrame(
+    {
+        "times": [1, 2, 2, 3, 4, 5, 6],
+        "reals": [1, 0, 2, 1, 0, 2, 1],
+    }
+)
+
+calculate_pseudostates(times_and_reals, fixed_time_horizon=5)
+```
+
+## Background
+
+The theoretical foundation for pseudo-observations in multi-state models was
+laid out by Andersen, Klein, and Rosthøj (2003), *Generalised linear models for
+correlated pseudo-observations, with applications to multi-state models*,
+*Biometrika*, 90(1), 15–27.
+
+The [`pseudo`](https://cran.r-project.org/package=pseudo) R package provides a
+widely used implementation of this approach.
+
+
+### Package comparisons
+
+`pseudostate` follows the same pseudo-observation idea used by established R
+packages, but provides a focused, Polars-native Python interface. The packages
+below overlap, but they are not interchangeable in every analysis.
+
+## At a glance
+
+| | `pseudostate` | R `pseudo` | R `survival::pseudo()` |
+|---|---|---|---|
+| Main interface | Polars DataFrame | R vectors | A fitted `survfit` object |
+| Calculation | Delete-one jackknife | Delete-one jackknife | Infinitesimal jackknife |
+| State probabilities | Yes | CIFs by cause; survival separately | Yes |
+| Horizons per call | One fixed horizon | One or more | One or more |
+| Other estimands | No | Restricted mean and years lost | Cumulative hazard and sojourn time |
+| Natural fit | Focused Python/Polars workflow | Established R pseudo-observation workflow | Fast integration with R `survival` |
+
+::: {.callout-note}
+## Exact and infinitesimal-jackknife values
+
+`pseudostate` and R's `pseudo` package construct ordinary delete-one
+jackknife pseudo-observations. `survival::pseudo()` uses an
+infinitesimal-jackknife approximation. Its documentation notes that the two are
+nearly identical for moderate to large samples, but they need not be exactly
+equal in a small example.
+:::
+
+## The same competing-risk data
+
+The tabs below express the same task: calculate subject-level
+pseudo-observations for state probabilities at time 5.
+
+::: {.panel-tabset}
+
+### pseudostate (Python 🐍)
+
+```python
+import polars as pl
+from pseudostate import calculate_pseudostates
+
+observations = pl.DataFrame(
+    {
+        "times": [1, 2, 2, 3, 4, 5, 6],
+        "reals": [1, 0, 2, 1, 0, 2, 1],
+    }
+)
+
+calculate_pseudostates(
+    observations,
+    fixed_time_horizon=5,
+)
+```
+
+**Output**
+
+| row_id | State 0 | Event 1 | Event 2 |
+|---:|---:|---:|---:|
+| 0 | 0.000000 | 1.000000 | 0.000000 |
+| 1 | 0.375000 | 0.250000 | 0.375000 |
+| 2 | 0.000000 | 0.000000 | 1.000000 |
+| 3 | -0.125000 | 1.250000 | -0.125000 |
+| 4 | 0.541667 | -0.083333 | 0.541667 |
+| 5 | -0.791667 | -0.083333 | 1.875000 |
+| 6 | 1.875000 | -0.083333 | -0.791667 |
+
+### pseudo (R 🔵)
+
+```r
+library(pseudo)
+
+time <- c(1, 2, 2, 3, 4, 5, 6)
+event <- c(1, 0, 2, 1, 0, 2, 1)
+
+values <- pseudoci(
+  time = time,
+  event = event,
+  tmax = 5
+)
+
+values$pseudo
+```
+
+**Output**
+
+`values$pseudo[[1]]` (event 1):
+
+| Subject | Pseudo-observation |
+|---:|---:|
+| 1 | 1.000000 |
+| 2 | 0.250000 |
+| 3 | 0.000000 |
+| 4 | 1.250000 |
+| 5 | -0.083333 |
+| 6 | -0.083333 |
+| 7 | -0.083333 |
+
+`values$pseudo[[2]]` (event 2):
+
+| Subject | Pseudo-observation |
+|---:|---:|
+| 1 | 0.000000 |
+| 2 | 0.375000 |
+| 3 | 1.000000 |
+| 4 | -0.125000 |
+| 5 | 0.541667 |
+| 6 | 1.875000 |
+| 7 | -0.791667 |
+
+These are the same delete-one event-specific values shown in the
+`pseudostate` output, up to rounding.
+
+### survival (R 🔵)
+
+```r
+library(survival)
+
+observations <- data.frame(
+  time = c(1, 2, 2, 3, 4, 5, 6),
+  event = factor(
+    c(1, 0, 2, 1, 0, 2, 1),
+    levels = c(0, 1, 2),
+    labels = c("censor", "event", "competing")
+  )
+)
+
+fit <- survfit(
+  Surv(time, event) ~ 1,
+  data = observations
+)
+
+pseudo(
+  fit,
+  times = 5,
+  type = "pstate",
+  data.frame = TRUE
+)
+```
+
+**Output structure**
+
+| id | time | state | pseudo |
+|---:|---:|---|---:|
+| 1 | 5 | Initial state | IJ value |
+| 1 | 5 | Event 1 | IJ value |
+| 1 | 5 | Event 2 | IJ value |
+| … | … | … | … |
+
+The returned long table contains one row per subject and state. The mean
+pseudo-value for the three states is respectively **0.267857**, **0.321429**,
+and **0.410714**, matching the full-sample Aalen–Johansen estimate.
+Subject-level values are not printed as equal to the tables above because this
+function uses the infinitesimal jackknife rather than delete-one refitting.
+
+:::
+
+## Which should you use?
+
+Use `pseudostate` when the surrounding workflow is Python and Polars and you
+need transparent state-probability pseudo-observations at a fixed horizon. Use
+R's `pseudo` when you need its broader set of pseudo-observation estimands or
+several horizons in one call. Use `survival::pseudo()` when the analysis
+already uses `survfit`, or when its fast infinitesimal-jackknife calculation
+and richer multi-state infrastructure are useful.
+
+## References
+
+- [R `pseudo` package manual](https://cran.r-project.org/package=pseudo)
+- [R `survival::pseudo()` documentation](https://rdrr.io/cran/survival/man/pseudo.html)
+

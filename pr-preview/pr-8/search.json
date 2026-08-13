@@ -1,0 +1,59 @@
+[
+  {
+    "objectID": "user-guide/package-comparisons.html",
+    "href": "user-guide/package-comparisons.html",
+    "title": "Package comparisons",
+    "section": "",
+    "text": "pseudostate follows the same pseudo-observation idea used by established R packages, but provides a focused, Polars-native Python interface. The packages below overlap, but they are not interchangeable in every analysis.\n\nAt a glance\n\n\n\n\n\n\n\n\n\n\npseudostate\nR pseudo\nR survival::pseudo()\n\n\n\n\nMain interface\nPolars DataFrame\nR vectors\nA fitted survfit object\n\n\nCalculation\nDelete-one jackknife\nDelete-one jackknife\nInfinitesimal jackknife\n\n\nState probabilities\nYes\nCIFs by cause; survival separately\nYes\n\n\nHorizons per call\nOne fixed horizon\nOne or more\nOne or more\n\n\nOther estimands\nNo\nRestricted mean and years lost\nCumulative hazard and sojourn time\n\n\nNatural fit\nFocused Python/Polars workflow\nEstablished R pseudo-observation workflow\nFast integration with R survival\n\n\n\n\n\n\n\n\n\nNoteExact and infinitesimal-jackknife values\n\n\n\npseudostate and R’s pseudo package construct ordinary delete-one jackknife pseudo-observations. survival::pseudo() uses an infinitesimal-jackknife approximation. Its documentation notes that the two are nearly identical for moderate to large samples, but they need not be exactly equal in a small example.\n\n\n\n\nThe same competing-risk data\nThe tabs below express the same task: calculate subject-level pseudo-observations for state probabilities at time 5.\n\npseudostate (Python 🐍)pseudo (R 🔵)survival (R 🔵)\n\n\nimport polars as pl\nfrom pseudostate import calculate_pseudostates\n\nobservations = pl.DataFrame(\n    {\n        \"times\": [1, 2, 2, 3, 4, 5, 6],\n        \"reals\": [1, 0, 2, 1, 0, 2, 1],\n    }\n)\n\ncalculate_pseudostates(\n    observations,\n    fixed_time_horizon=5,\n)\nOutput\n\n\n\nrow_id\nState 0\nEvent 1\nEvent 2\n\n\n\n\n0\n0.000000\n1.000000\n0.000000\n\n\n1\n0.375000\n0.250000\n0.375000\n\n\n2\n0.000000\n0.000000\n1.000000\n\n\n3\n-0.125000\n1.250000\n-0.125000\n\n\n4\n0.541667\n-0.083333\n0.541667\n\n\n5\n-0.791667\n-0.083333\n1.875000\n\n\n6\n1.875000\n-0.083333\n-0.791667\n\n\n\n\n\nlibrary(pseudo)\n\ntime &lt;- c(1, 2, 2, 3, 4, 5, 6)\nevent &lt;- c(1, 0, 2, 1, 0, 2, 1)\n\nvalues &lt;- pseudoci(\n  time = time,\n  event = event,\n  tmax = 5\n)\n\nvalues$pseudo\nOutput\nvalues$pseudo[[1]] (event 1):\n\n\n\nSubject\nPseudo-observation\n\n\n\n\n1\n1.000000\n\n\n2\n0.250000\n\n\n3\n0.000000\n\n\n4\n1.250000\n\n\n5\n-0.083333\n\n\n6\n-0.083333\n\n\n7\n-0.083333\n\n\n\nvalues$pseudo[[2]] (event 2):\n\n\n\nSubject\nPseudo-observation\n\n\n\n\n1\n0.000000\n\n\n2\n0.375000\n\n\n3\n1.000000\n\n\n4\n-0.125000\n\n\n5\n0.541667\n\n\n6\n1.875000\n\n\n7\n-0.791667\n\n\n\nThese are the same delete-one event-specific values shown in the pseudostate output, up to rounding.\n\n\nlibrary(survival)\n\nobservations &lt;- data.frame(\n  time = c(1, 2, 2, 3, 4, 5, 6),\n  event = factor(\n    c(1, 0, 2, 1, 0, 2, 1),\n    levels = c(0, 1, 2),\n    labels = c(\"censor\", \"event\", \"competing\")\n  )\n)\n\nfit &lt;- survfit(\n  Surv(time, event) ~ 1,\n  data = observations\n)\n\npseudo(\n  fit,\n  times = 5,\n  type = \"pstate\",\n  data.frame = TRUE\n)\nOutput structure\n\n\n\nid\ntime\nstate\npseudo\n\n\n\n\n1\n5\nInitial state\nIJ value\n\n\n1\n5\nEvent 1\nIJ value\n\n\n1\n5\nEvent 2\nIJ value\n\n\n…\n…\n…\n…\n\n\n\nThe returned long table contains one row per subject and state. The mean pseudo-value for the three states is respectively 0.267857, 0.321429, and 0.410714, matching the full-sample Aalen–Johansen estimate. Subject-level values are not printed as equal to the tables above because this function uses the infinitesimal jackknife rather than delete-one refitting.\n\n\n\n\n\nWhich should you use?\nUse pseudostate when the surrounding workflow is Python and Polars and you need transparent state-probability pseudo-observations at a fixed horizon. Use R’s pseudo when you need its broader set of pseudo-observation estimands or several horizons in one call. Use survival::pseudo() when the analysis already uses survfit, or when its fast infinitesimal-jackknife calculation and richer multi-state infrastructure are useful.\n\n\nReferences\n\nR pseudo package manual\nR survival::pseudo() documentation",
+    "crumbs": [
+      "Package comparisons"
+    ]
+  },
+  {
+    "objectID": "reference/index.html",
+    "href": "reference/index.html",
+    "title": "API Reference",
+    "section": "",
+    "text": "Functions for computing pseudo-observations of state occupation probabilities.\n\n\nPseudo-observations\n\nCompute exact or infinitesimal-jackknife pseudo-observations.\n\n\ncalculate_pseudostates()\n\nCompute Aalen Johansen pseudo-observations at a fixed time horizon.",
+    "crumbs": [
+      "API Reference",
+      "API Index"
+    ]
+  },
+  {
+    "objectID": "package-info.html",
+    "href": "package-info.html",
+    "title": "Package Info",
+    "section": "",
+    "text": "Summary\n\nRequires: Python &gt;=3.13\nRuntime Dependencies: 0\nTotal unique dependencies: 0"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Get started",
+    "section": "",
+    "text": "pseudostate computes Aalen–Johansen pseudo-observations at a fixed time horizon. These pseudo-observations can be used as individual-level outcomes in regression models for cumulative incidence or state occupation probabilities.\n\nInstallation\nWith uv:\nuv add pseudostate\nAlternatively, with pip:\npip install pseudostate\n\n\nA reproducible example\n\nimport polars as pl\nfrom pseudostate import calculate_pseudostates\n\ntimes_and_reals = pl.DataFrame(\n    {\n        \"times\": [1, 2, 2, 3, 4, 5, 6],\n        \"reals\": [1, 0, 2, 1, 0, 2, 1],\n    }\n)\n\ncalculate_pseudostates(times_and_reals, fixed_time_horizon=5)\n\n\nshape: (7, 6)estimate_origintimesstate_occupancy_probability_0state_occupancy_probability_1state_occupancy_probability_2row_idenumf64f64f64f64i32\"fixed_time_horizons\"5.00.01.04.4409e-160\"fixed_time_horizons\"5.00.3750.250.3751\"fixed_time_horizons\"5.00.00.01.02\"fixed_time_horizons\"5.0-0.1251.25-0.1253\"fixed_time_horizons\"5.00.541667-0.0833330.5416674\"fixed_time_horizons\"5.0-0.791667-0.0833331.8755\"fixed_time_horizons\"5.01.875-0.083333-0.7916676\n\n\n\n\nBackground\nThe theoretical foundation for pseudo-observations in multi-state models was laid out by Andersen, Klein, and Rosthøj (2003), Generalised linear models for correlated pseudo-observations, with applications to multi-state models, Biometrika, 90(1), 15–27.\nThe pseudo R package provides a widely used implementation of this approach.\n\n\nLinks\nView on PyPI\n\n\nAI / Agents\nSkills llms.txt llms-full.txt\n\n\nDevelopers\n\n\n\nUriah Finkel\n\n\n\n\n\nMeta\nRequires: Python &gt;=3.13 Package Info",
+    "crumbs": [
+      "Get started"
+    ]
+  },
+  {
+    "objectID": "reference/calculate_pseudostates.html",
+    "href": "reference/calculate_pseudostates.html",
+    "title": "calculate_pseudostates()",
+    "section": "",
+    "text": "Compute Aalen Johansen pseudo-observations at a fixed time horizon.\n\n\nUsage\nSource\n\n\ncalculate_pseudostates(times_and_reals, fixed_time_horizon)\n\n\nThis function computes jackknife pseudo-observations for state occupation probabilities (or related Aalen Johansen estimands) evaluated at a fixed time horizon. Pseudo-observations are constructed using a leave-one-out scheme:\n.. math::\n\\text{pseudo}_i = n \\cdot \\theta_{\\text{full}} - (n - 1) \\cdot \\theta_{(-i)}\nwhere :math:\\theta_{\\text{full}} is the Aalen Johansen estimate based on the full sample, and :math:\\theta_{(-i)} is the estimate obtained after removing individual :math:i.\nThe resulting pseudo-observations can be used as individual-level outcomes in regression models (e.g., GEE or GLM) to assess covariate effects on cumulative incidence or state occupation probabilities.\n\n\nParameters\n\n\ntimes_and_reals: pl.DataFrame\n\nInput data containing individual event times and realized states. Must be compatible with prepare_event_table and predict_aj_estimates. Each row corresponds to a single individual.\n\nfixed_time_horizon: int\n\nTime point at which the Aalen Johansen estimates are evaluated.\n\n\n\n\n\nReturns\n\n\n pl.DataFrame\n\nA Polars DataFrame containing pseudo-observations for each individual. The output includes:\n\nIdentifier columns (e.g., state, time, horizon) copied from the full-sample Aalen Johansen estimate.\nNumeric columns containing the pseudo-observations.\nA row_id column indicating the index of the left-out observation.\n\nFor each numeric column, the mean of the pseudo-observations equals the corresponding full-sample Aalen Johansen estimate.\n\n\n\n\n\nSee Also\n\n\n\nConvert raw data into an event table.\n\n\n\nPredict Aalen-Johansen estimates.\n\n\n\n\nNotes\n\nThis implementation uses an explicit leave-one-out loop and therefore has time complexity O(n²). It is intended for methodological work, simulations, or moderate sample sizes.\nIn the absence of censoring, the pseudo-observations reduce to the empirical individual contributions.\nNon-numeric columns (e.g., state labels) are treated as identifiers and are not transformed.\n\n\n\nReferences\n.. [1] Andersen, P. K., & Pohar Perme, M. (2010). Pseudo-observations in survival analysis. Statistical Methods in Medical Research, 19(1), 71–99.",
+    "crumbs": [
+      "API Reference",
+      "Pseudo-observations",
+      "calculate_pseudostates"
+    ]
+  },
+  {
+    "objectID": "skills.html",
+    "href": "skills.html",
+    "title": "Skills",
+    "section": "",
+    "text": "A skill is a package of structured files that teaches an AI coding agent how to work with a specific tool or framework. The skill below was generated by Great Docs from this project’s documentation. Install it in your agent and it will be able to run commands, edit configuration, write content, and troubleshoot problems without step-by-step guidance from you.\n\n  \n    ▶    Install this skill\n  \n  \n    \n      \nAny agent — install with npx:\nnpx skills add https://uriahf.github.io/pseudostate/\nCodex / OpenCode\nTell the agent:Fetch the skill file at https://uriahf.github.io/pseudostate/skill.md and follow the instructions.\nManual — download the skill file:\ncurl -O https://uriahf.github.io/pseudostate/skill.md\nOr browse the SKILL.md file.\n      \n    \n  \n\n\nSKILL.md\n---\nname: pseudostate\ndescription: &gt;\n  Add your description here. Use when writing Python code that uses the pseudostate package.\ncompatibility: Requires Python &gt;=3.13.\n---\n\n# pseudostate\n\nAdd your description here\n\n## Installation\n\n```bash\npip install pseudostate\n```\n\n## API overview\n\n### Pseudo-observations\n\nCompute exact or infinitesimal-jackknife pseudo-observations.\n\n- `calculate_pseudostates`: Compute Aalen Johansen pseudo-observations at a fixed time horizon\n\n## Resources\n\n- [Full documentation](https://uriahf.github.io/pseudostate/)\n- [llms.txt](llms.txt) — Indexed API reference for LLMs\n- [llms-full.txt](llms-full.txt) — Comprehensive documentation for LLMs"
+  }
+]
