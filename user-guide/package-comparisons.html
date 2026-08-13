@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="How pseudostate relates to pseudo-observation tools in R.">
 
-<title>API Reference – pseudostate | pseudostate</title>
+<title>Package comparisons – pseudostate | pseudostate</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -26,6 +27,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -36,6 +72,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../index.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -85,34 +122,19 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="../classic.css">
-  <link rel="alternate" type="text/markdown" href="index.md">
-  <link rel="canonical" href="https://uriahf.github.io/pseudostate/reference/">
-  <meta name="description" content="Compute jackknife pseudo-observations for state occupation probabilities.">
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "SoftwareSourceCode",
-  "name": "pseudostate",
-  "description": "Add your description here",
-  "url": "https://uriahf.github.io/pseudostate",
-  "documentation": "https://uriahf.github.io/pseudostate",
-  "programmingLanguage": {
-    "@type": "ComputerLanguage",
-    "name": "Python"
-  }
-}
-</script>
+  <link rel="alternate" type="text/markdown" href="package-comparisons.md">
+  <link rel="canonical" href="https://uriahf.github.io/pseudostate/user-guide/package-comparisons.html">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="API Reference – pseudostate | pseudostate">
-  <meta property="og:description" content="Compute jackknife pseudo-observations for state occupation probabilities.">
-  <meta property="og:url" content="https://uriahf.github.io/pseudostate/reference/">
+  <meta property="og:title" content="Package comparisons – pseudostate | pseudostate">
+  <meta property="og:description" content="How pseudostate relates to pseudo-observation tools in R.">
+  <meta property="og:url" content="https://uriahf.github.io/pseudostate/user-guide/package-comparisons.html">
   <meta property="og:site_name" content="pseudostate">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="API Reference – pseudostate | pseudostate">
-  <meta name="twitter:description" content="Compute jackknife pseudo-observations for state occupation probabilities.">
+  <meta name="twitter:title" content="Package comparisons – pseudostate | pseudostate">
+  <meta name="twitter:description" content="How pseudostate relates to pseudo-observation tools in R.">
 </head>
 
-<body class="gd-ref-sidebar nav-sidebar floating nav-fixed doc-reference quarto-light">
+<body class="nav-sidebar floating nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -130,7 +152,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="../reference/index.html" aria-current="page"> 
+    <a class="nav-link" href="../reference/index.html"> 
 <span class="menu-text">Reference</span></a>
   </li>  
 </ul>
@@ -151,7 +173,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <h1 class="quarto-secondary-nav-title no-breadcrumbs gd-ref-title"><span class="gd-ref-title-prefix">API</span><span class="gd-ref-title-sep">/</span><span class="gd-ref-title-name">Index</span></h1>
+        <h1 class="quarto-secondary-nav-title no-breadcrumbs">Package comparisons</h1>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -164,25 +186,17 @@ ul.task-list li input[type="checkbox"] {
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
-  <div class="sidebar-item-container" style="padding-bottom: 0.5rem; padding-top: 0.25rem;"> 
-  <a href="../reference/index.html" style="font-family: &quot;Open Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, sans-serif;" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">API Index</span></a>
-  </div>
-</li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Pseudo-observations</span></a>
-</div>
-      <ul id="quarto-sidebar-section-1" class="list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../reference/calculate_pseudostates.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">calculate_pseudostates</span></a>
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Get started</span></a>
   </div>
 </li>
-      </ul>
-  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../user-guide/package-comparisons.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Package comparisons</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -193,7 +207,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul class="collapse">
-  <li><a href="#pseudo-observations" id="toc-pseudo-observations" class="nav-link active" data-scroll-target="#pseudo-observations">Pseudo-observations</a></li>
+  <li><a href="#at-a-glance" id="toc-at-a-glance" class="nav-link active" data-scroll-target="#at-a-glance">At a glance</a></li>
+  <li><a href="#the-same-competing-risk-data" id="toc-the-same-competing-risk-data" class="nav-link" data-scroll-target="#the-same-competing-risk-data">The same competing-risk data</a></li>
+  <li><a href="#which-should-you-use" id="toc-which-should-you-use" class="nav-link" data-scroll-target="#which-should-you-use">Which should you use?</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 </nav>
     </div>
@@ -202,9 +219,14 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">API Reference</h1>
+<h1 class="title d-none d-lg-block">Package comparisons</h1>
 </div>
 
+<div>
+  <div class="description">
+    How pseudostate relates to pseudo-observation tools in R.
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
@@ -219,17 +241,317 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="pseudo-observations" class="level2 doc-group">
-<h2 class="doc-group">Pseudo-observations</h2>
-<div class="doc-description">
-<p>Compute jackknife pseudo-observations for state occupation probabilities.</p>
+<p><code>pseudostate</code> follows the same pseudo-observation idea used by established R packages, but provides a focused, Polars-native Python interface. The packages below overlap, but they are not interchangeable in every analysis.</p>
+<section id="at-a-glance" class="level1">
+<h1>At a glance</h1>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th><code>pseudostate</code></th>
+<th>R <code>pseudo</code></th>
+<th>R <code>survival::pseudo()</code></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Main interface</td>
+<td>Polars DataFrame</td>
+<td>R vectors</td>
+<td>A fitted <code>survfit</code> object</td>
+</tr>
+<tr class="even">
+<td>Calculation</td>
+<td>Delete-one jackknife</td>
+<td>Delete-one jackknife</td>
+<td>Infinitesimal jackknife</td>
+</tr>
+<tr class="odd">
+<td>State probabilities</td>
+<td>Yes</td>
+<td>CIFs by cause; survival separately</td>
+<td>Yes</td>
+</tr>
+<tr class="even">
+<td>Horizons per call</td>
+<td>One fixed horizon</td>
+<td>One or more</td>
+<td>One or more</td>
+</tr>
+<tr class="odd">
+<td>Other estimands</td>
+<td>No</td>
+<td>Restricted mean and years lost</td>
+<td>Cumulative hazard and sojourn time</td>
+</tr>
+<tr class="even">
+<td>Natural fit</td>
+<td>Focused Python/Polars workflow</td>
+<td>Established R pseudo-observation workflow</td>
+<td>Fast integration with R <code>survival</code></td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<dl>
-<dt><a href="../reference/calculate_pseudostates.html#pseudostate.calculate_pseudostates" class="doc-function doc-label doc-label-function">calculate_pseudostates()</a></dt>
-<dd>
-<p>Compute Aalen Johansen pseudo-observations at a fixed time horizon.</p>
-</dd>
-</dl>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Exact and infinitesimal-jackknife values
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>pseudostate</code> and R’s <code>pseudo</code> package construct ordinary delete-one jackknife pseudo-observations. <code>survival::pseudo()</code> uses an infinitesimal-jackknife approximation. Its documentation notes that the two are nearly identical for moderate to large samples, but they need not be exactly equal in a small example.</p>
+</div>
+</div>
+</section>
+<section id="the-same-competing-risk-data" class="level1">
+<h1>The same competing-risk data</h1>
+<p>The tabs below express the same task: calculate subject-level pseudo-observations for state probabilities at time 5.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">pseudostate (Python 🐍)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">pseudo (R 🔵)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">survival (R 🔵)</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pseudostate <span class="im">import</span> calculate_pseudostates</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>observations <span class="op">=</span> pl.DataFrame(</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    {</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">"times"</span>: [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>],</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        <span class="st">"reals"</span>: [<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">1</span>],</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>calculate_pseudostates(</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    observations,</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    fixed_time_horizon<span class="op">=</span><span class="dv">5</span>,</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<p><strong>Output</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: right;">row_id</th>
+<th style="text-align: right;">State 0</th>
+<th style="text-align: right;">Event 1</th>
+<th style="text-align: right;">Event 2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.000000</td>
+<td style="text-align: right;">1.000000</td>
+<td style="text-align: right;">0.000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.375000</td>
+<td style="text-align: right;">0.250000</td>
+<td style="text-align: right;">0.375000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.000000</td>
+<td style="text-align: right;">0.000000</td>
+<td style="text-align: right;">1.000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">-0.125000</td>
+<td style="text-align: right;">1.250000</td>
+<td style="text-align: right;">-0.125000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0.541667</td>
+<td style="text-align: right;">-0.083333</td>
+<td style="text-align: right;">0.541667</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">-0.791667</td>
+<td style="text-align: right;">-0.083333</td>
+<td style="text-align: right;">1.875000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">1.875000</td>
+<td style="text-align: right;">-0.083333</td>
+<td style="text-align: right;">-0.791667</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pseudo)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>time <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>event <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">1</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>values <span class="ot">&lt;-</span> <span class="fu">pseudoci</span>(</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">time =</span> time,</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">event =</span> event,</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">tmax =</span> <span class="dv">5</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>values<span class="sc">$</span>pseudo</span></code></pre></div>
+<p><strong>Output</strong></p>
+<p><code>values$pseudo[[1]]</code> (event 1):</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: right;">Subject</th>
+<th style="text-align: right;">Pseudo-observation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1.000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.250000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">1.250000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">-0.083333</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">-0.083333</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">-0.083333</td>
+</tr>
+</tbody>
+</table>
+<p><code>values$pseudo[[2]]</code> (event 2):</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: right;">Subject</th>
+<th style="text-align: right;">Pseudo-observation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.375000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1.000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">-0.125000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.541667</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">1.875000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">-0.791667</td>
+</tr>
+</tbody>
+</table>
+<p>These are the same delete-one event-specific values shown in the <code>pseudostate</code> output, up to rounding.</p>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(survival)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>observations <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">time =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>),</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">event =</span> <span class="fu">factor</span>(</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">1</span>),</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>),</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"censor"</span>, <span class="st">"event"</span>, <span class="st">"competing"</span>)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">survfit</span>(</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">Surv</span>(time, event) <span class="sc">~</span> <span class="dv">1</span>,</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> observations</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="fu">pseudo</span>(</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>  fit,</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">times =</span> <span class="dv">5</span>,</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">"pstate"</span>,</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">data.frame =</span> <span class="cn">TRUE</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<p><strong>Output structure</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: right;">id</th>
+<th style="text-align: right;">time</th>
+<th>state</th>
+<th style="text-align: right;">pseudo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">5</td>
+<td>Initial state</td>
+<td style="text-align: right;">IJ value</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">5</td>
+<td>Event 1</td>
+<td style="text-align: right;">IJ value</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">5</td>
+<td>Event 2</td>
+<td style="text-align: right;">IJ value</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">…</td>
+<td style="text-align: right;">…</td>
+<td>…</td>
+<td style="text-align: right;">…</td>
+</tr>
+</tbody>
+</table>
+<p>The returned long table contains one row per subject and state. The mean pseudo-value for the three states is respectively <strong>0.267857</strong>, <strong>0.321429</strong>, and <strong>0.410714</strong>, matching the full-sample Aalen–Johansen estimate. Subject-level values are not printed as equal to the tables above because this function uses the infinitesimal jackknife rather than delete-one refitting.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="which-should-you-use" class="level1">
+<h1>Which should you use?</h1>
+<p>Use <code>pseudostate</code> when the surrounding workflow is Python and Polars and you need transparent state-probability pseudo-observations at a fixed horizon. Use R’s <code>pseudo</code> when you need its broader set of pseudo-observation estimands or several horizons in one call. Use <code>survival::pseudo()</code> when the analysis already uses <code>survfit</code>, or when its fast infinitesimal-jackknife calculation and richer multi-state infrastructure are useful.</p>
+</section>
+<section id="references" class="level1">
+<h1>References</h1>
+<ul>
+<li><a href="https://cran.r-project.org/package=pseudo">R <code>pseudo</code> package manual</a></li>
+<li><a href="https://rdrr.io/cran/survival/man/pseudo.html">R <code>survival::pseudo()</code> documentation</a></li>
+</ul>
 
 
 </section>
@@ -573,6 +895,15 @@ ul.task-list li input[type="checkbox"] {
     }
   });
   </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../index.html" class="pagination-link" aria-label="Get started">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Get started</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
@@ -582,6 +913,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </footer>
 <script src="../github-widget.js"></script>
+<script src="../copy-page.js"></script>
 <script src="../sidebar-wrap.js"></script>
 <script>(function(){var s=document.createElement('script');var m=document.querySelector('meta[name="quarto:offset"]');s.src=(m?m.content:'')+'sidebar-float.js';document.body.appendChild(s);})();</script>
 <script src="../sidebar-filter.js"></script>

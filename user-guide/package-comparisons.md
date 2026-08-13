@@ -1,0 +1,151 @@
+# Package comparisons
+
+`pseudostate` follows the same pseudo-observation idea used by established R packages, but provides a focused, Polars-native Python interface. The packages below overlap, but they are not interchangeable in every analysis.
+
+
+# At a glance
+
+|  | `pseudostate` | R `pseudo` | R `survival::pseudo()` |
+|----|----|----|----|
+| Main interface | Polars DataFrame | R vectors | A fitted `survfit` object |
+| Calculation | Delete-one jackknife | Delete-one jackknife | Infinitesimal jackknife |
+| State probabilities | Yes | CIFs by cause; survival separately | Yes |
+| Horizons per call | One fixed horizon | One or more | One or more |
+| Other estimands | No | Restricted mean and years lost | Cumulative hazard and sojourn time |
+| Natural fit | Focused Python/Polars workflow | Established R pseudo-observation workflow | Fast integration with R `survival` |
+
+> **Note: Exact and infinitesimal-jackknife values**
+>
+> `pseudostate` and R's `pseudo` package construct ordinary delete-one jackknife pseudo-observations. `survival::pseudo()` uses an infinitesimal-jackknife approximation. Its documentation notes that the two are nearly identical for moderate to large samples, but they need not be exactly equal in a small example.
+
+
+# The same competing-risk data
+
+The tabs below express the same task: calculate subject-level pseudo-observations for state probabilities at time 5.
+
+
+- <a href="" id="tabset-1-1-tab" class="nav-link active" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">pseudostate (Python 🐍)</a>
+- <a href="" id="tabset-1-2-tab" class="nav-link" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">pseudo (R 🔵)</a>
+- <a href="" id="tabset-1-3-tab" class="nav-link" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">survival (R 🔵)</a>
+
+
+``` python
+import polars as pl
+from pseudostate import calculate_pseudostates
+
+observations = pl.DataFrame(
+    {
+        "times": [1, 2, 2, 3, 4, 5, 6],
+        "reals": [1, 0, 2, 1, 0, 2, 1],
+    }
+)
+
+calculate_pseudostates(
+    observations,
+    fixed_time_horizon=5,
+)
+```
+
+**Output**
+
+| row_id |   State 0 |   Event 1 |   Event 2 |
+|-------:|----------:|----------:|----------:|
+|      0 |  0.000000 |  1.000000 |  0.000000 |
+|      1 |  0.375000 |  0.250000 |  0.375000 |
+|      2 |  0.000000 |  0.000000 |  1.000000 |
+|      3 | -0.125000 |  1.250000 | -0.125000 |
+|      4 |  0.541667 | -0.083333 |  0.541667 |
+|      5 | -0.791667 | -0.083333 |  1.875000 |
+|      6 |  1.875000 | -0.083333 | -0.791667 |
+
+
+``` r
+library(pseudo)
+
+time <- c(1, 2, 2, 3, 4, 5, 6)
+event <- c(1, 0, 2, 1, 0, 2, 1)
+
+values <- pseudoci(
+  time = time,
+  event = event,
+  tmax = 5
+)
+
+values$pseudo
+```
+
+**Output**
+
+`values$pseudo[[1]]` (event 1):
+
+| Subject | Pseudo-observation |
+|--------:|-------------------:|
+|       1 |           1.000000 |
+|       2 |           0.250000 |
+|       3 |           0.000000 |
+|       4 |           1.250000 |
+|       5 |          -0.083333 |
+|       6 |          -0.083333 |
+|       7 |          -0.083333 |
+
+`values$pseudo[[2]]` (event 2):
+
+| Subject | Pseudo-observation |
+|--------:|-------------------:|
+|       1 |           0.000000 |
+|       2 |           0.375000 |
+|       3 |           1.000000 |
+|       4 |          -0.125000 |
+|       5 |           0.541667 |
+|       6 |           1.875000 |
+|       7 |          -0.791667 |
+
+These are the same delete-one event-specific values shown in the `pseudostate` output, up to rounding.
+
+
+``` r
+library(survival)
+
+observations <- data.frame(
+  time = c(1, 2, 2, 3, 4, 5, 6),
+  event = factor(
+    c(1, 0, 2, 1, 0, 2, 1),
+    levels = c(0, 1, 2),
+    labels = c("censor", "event", "competing")
+  )
+)
+
+fit <- survfit(
+  Surv(time, event) ~ 1,
+  data = observations
+)
+
+pseudo(
+  fit,
+  times = 5,
+  type = "pstate",
+  data.frame = TRUE
+)
+```
+
+**Output structure**
+
+|  id | time | state         |   pseudo |
+|----:|-----:|---------------|---------:|
+|   1 |    5 | Initial state | IJ value |
+|   1 |    5 | Event 1       | IJ value |
+|   1 |    5 | Event 2       | IJ value |
+|   … |    … | …             |        … |
+
+The returned long table contains one row per subject and state. The mean pseudo-value for the three states is respectively **0.267857**, **0.321429**, and **0.410714**, matching the full-sample Aalen-Johansen estimate. Subject-level values are not printed as equal to the tables above because this function uses the infinitesimal jackknife rather than delete-one refitting.
+
+
+# Which should you use?
+
+Use `pseudostate` when the surrounding workflow is Python and Polars and you need transparent state-probability pseudo-observations at a fixed horizon. Use R's `pseudo` when you need its broader set of pseudo-observation estimands or several horizons in one call. Use `survival::pseudo()` when the analysis already uses `survfit`, or when its fast infinitesimal-jackknife calculation and richer multi-state infrastructure are useful.
+
+
+# References
+
+- [R `pseudo` package manual](https://cran.r-project.org/package=pseudo)
+- [R `survival::pseudo()` documentation](https://rdrr.io/cran/survival/man/pseudo.html)

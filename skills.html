@@ -2,17 +2,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.26">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>get_started – Pseudo State</title>
+<title>Skills – pseudostate | pseudostate</title>
 <style>
-code{white-space: pre-wrap;}
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -58,7 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -67,19 +73,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="./">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-8c72952ee3bb7393c4da19789dad797f.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-f249475e52cfe1a8e33717ce9f888b08.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-8c72952ee3bb7393c4da19789dad797f.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-f608c60e8059425955e0a613f06d8128.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-f608c60e8059425955e0a613f06d8128.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-f608c60e8059425955e0a613f06d8128.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-bf476c94c8758bc321fd5fd3b984c438.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -107,41 +108,58 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<script>document.head.appendChild(Object.assign(document.createElement('link'),{rel:'stylesheet',href:(document.querySelector('meta[name="quarto:offset"]')||{content:''}).content+'termshow.css'}));</script>
+<script>document.head.appendChild(Object.assign(document.createElement('link'),{rel:'stylesheet',href:(document.querySelector('meta[name="quarto:offset"]')||{content:''}).content+'gd-lightbox.css'}));</script>
+<script>(function(){var s=document.createElement('script');var m=document.querySelector('meta[name="quarto:offset"]');s.src=(m?m.content:'')+'gd-lightbox.js';s.defer=true;document.head.appendChild(s);})();</script>
+<script>document.head.appendChild(Object.assign(document.createElement('link'),{rel:'stylesheet',href:(document.querySelector('meta[name="quarto:offset"]')||{content:''}).content+'gd-lightbox-compare.css'}));</script>
+<script>(function(){var s=document.createElement('script');var m=document.querySelector('meta[name="quarto:offset"]');s.src=(m?m.content:'')+'gd-lightbox-compare.js';s.defer=true;document.head.appendChild(s);})();</script>
+<script>document.head.appendChild(Object.assign(document.createElement('link'),{rel:'stylesheet',href:(document.querySelector('meta[name="quarto:offset"]')||{content:''}).content+'gd-lightbox-annotate.css'}));</script>
+<script>(function(){var s=document.createElement('script');var m=document.querySelector('meta[name="quarto:offset"]');s.src=(m?m.content:'')+'gd-lightbox-annotate.js';s.defer=true;document.head.appendChild(s);})();</script>
+<script src="theme-init.js"></script>
 
-<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
-
+<link rel="stylesheet" href="classic.css">
+  <link rel="canonical" href="https://uriahf.github.io/pseudostate/skills.html">
+  <meta name="description" content="A skill is a package of structured files that teaches an AI coding agent how to work with a specific tool or framework. The skill below was generated...">
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Skills – pseudostate | pseudostate">
+  <meta property="og:description" content="A skill is a package of structured files that teaches an AI coding agent how to work with a specific tool or framework. The skill below was generated...">
+  <meta property="og:url" content="https://uriahf.github.io/pseudostate/skills.html">
+  <meta property="og:site_name" content="pseudostate">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Skills – pseudostate | pseudostate">
+  <meta name="twitter:description" content="A skill is a package of structured files that teaches an AI coding agent how to work with a specific tool or framework. The skill below was generated...">
 </head>
 
-<body class="nav-fixed fullcontent quarto-light">
+<body class="nav-fixed gd-skills-page quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./logo.png" alt="" class="navbar-logo light-content">
-    <img src="./logo.png" alt="" class="navbar-logo dark-content">
-    </a>
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Pseudo State</span>
+    <span class="navbar-title">pseudostate</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
+            <div id="quarto-search" class=""></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./get_started.html" aria-current="page"> 
-<span class="menu-text">Get Started</span></a>
-  </li>  
-  <li class="nav-item">
     <a class="nav-link" href="./reference/index.html"> 
 <span class="menu-text">Reference</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <span class="nav-link">
+<div id="github-widget" data-owner="uriahf" data-repo="pseudostate" data-stars="0" data-forks="0"></div>
+    </span>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -151,21 +169,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-page" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Get Started with pseudostate</h1>
+<h1 class="title">Skills</h1>
 </div>
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-page">
 
     
   
@@ -177,122 +195,70 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>This is a reproducible example that shows how to use pseudostate.</p>
-<section id="background" class="level3">
-<h3 class="anchored" data-anchor-id="background">Background</h3>
-<p>The theoretical foundation for pseudo-observations was laid out in a 2003 paper by Andersen, Klein, and Rosthøj:</p>
-<ul>
-<li>Andersen, P. K., Klein, J. P., &amp; Rosthøj, S. (2003). Generalised linear models for correlated pseudo-observations, with applications to multi-state models. <em>Biometrika</em>, 90(1), 15–27.</li>
-</ul>
-<p>A popular implementation of this technique is the <code>pseudo</code> R package, which is available on CRAN:</p>
-<ul>
-<li><a href="https://cran.r-project.org/package=pseudo">https://cran.r-project.org/package=pseudo</a></li>
-</ul>
-<div id="87b54b0a" class="cell" data-execution_count="1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pseudostate <span class="im">import</span> calculate_pseudostates</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>times_and_reals <span class="op">=</span> pl.DataFrame({</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        <span class="st">"times"</span>: [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>],</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">"reals"</span>: [<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">1</span>]</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>fixed_time_horizon <span class="op">=</span> <span class="dv">5</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>calculate_pseudostates(times_and_reals, fixed_time_horizon)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="1">
-<div><style>
-.dataframe > thead > tr,
-.dataframe > tbody > tr {
-  text-align: right;
-  white-space: pre-wrap;
-}
-</style>
-<small>shape: (7, 6)</small>
-<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th">estimate_origin</th>
-<th data-quarto-table-cell-role="th">times</th>
-<th data-quarto-table-cell-role="th">state_occupancy_probability_0</th>
-<th data-quarto-table-cell-role="th">state_occupancy_probability_1</th>
-<th data-quarto-table-cell-role="th">state_occupancy_probability_2</th>
-<th data-quarto-table-cell-role="th">row_id</th>
-</tr>
-<tr class="even">
-<td>enum</td>
-<td>f64</td>
-<td>f64</td>
-<td>f64</td>
-<td>f64</td>
-<td>i32</td>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>"fixed_time_horizons"</td>
-<td>5.0</td>
-<td>0.0</td>
-<td>1.0</td>
-<td>4.4409e-16</td>
-<td>0</td>
-</tr>
-<tr class="even">
-<td>"fixed_time_horizons"</td>
-<td>5.0</td>
-<td>0.375</td>
-<td>0.25</td>
-<td>0.375</td>
-<td>1</td>
-</tr>
-<tr class="odd">
-<td>"fixed_time_horizons"</td>
-<td>5.0</td>
-<td>0.0</td>
-<td>0.0</td>
-<td>1.0</td>
-<td>2</td>
-</tr>
-<tr class="even">
-<td>"fixed_time_horizons"</td>
-<td>5.0</td>
-<td>-0.125</td>
-<td>1.25</td>
-<td>-0.125</td>
-<td>3</td>
-</tr>
-<tr class="odd">
-<td>"fixed_time_horizons"</td>
-<td>5.0</td>
-<td>0.541667</td>
-<td>-0.083333</td>
-<td>0.541667</td>
-<td>4</td>
-</tr>
-<tr class="even">
-<td>"fixed_time_horizons"</td>
-<td>5.0</td>
-<td>-0.791667</td>
-<td>-0.083333</td>
-<td>1.875</td>
-<td>5</td>
-</tr>
-<tr class="odd">
-<td>"fixed_time_horizons"</td>
-<td>5.0</td>
-<td>1.875</td>
-<td>-0.083333</td>
-<td>-0.791667</td>
-<td>6</td>
-</tr>
-</tbody>
-</table>
+<p>A skill is a package of structured files that teaches an AI coding agent how to work with a specific tool or framework. The skill below was generated by Great Docs from this project’s documentation. Install it in your agent and it will be able to run commands, edit configuration, write content, and troubleshoot problems without step-by-step guidance from you.</p>
+<div class="gd-skills-install">
+  <button class="gd-skills-install-toggle" aria-expanded="false" aria-controls="gd-skills-install-body">
+    <span class="gd-skills-install-icon">▶</span>    Install this skill
+  </button>
+  <div class="gd-skills-install-body" id="gd-skills-install-body">
+    <div class="gd-skills-install-inner">
+      <div class="gd-skills-install-pad">
+<p><strong>Any agent</strong> — install with <a href="https://github.com/vercel-labs/skills">npx</a>:</p>
+<div class="sourceCode"><pre class="sourceCode bash code-with-copy" style="padding-bottom: 0;"><code>npx skills add https://uriahf.github.io/pseudostate/</code></pre></div>
+<p><strong>Codex / OpenCode</strong></p>
+<div class="sourceCode"><pre class="sourceCode text code-with-copy" style="padding-bottom: 0;"><code>Tell the agent:<br>Fetch the skill file at https://uriahf.github.io/pseudostate/skill.md and follow the instructions.</code></pre></div>
+<p><strong>Manual</strong> — download the skill file:</p>
+<div class="sourceCode"><pre class="sourceCode bash code-with-copy" style="padding-bottom: 0;"><code>curl -O https://uriahf.github.io/pseudostate/skill.md</code></pre></div>
+<p>Or browse the <a href="skill.md" class="gd-raw-link"><code>SKILL.md</code></a> file.</p>
+      </div>
+    </div>
+  </div>
 </div>
-</div>
-</div>
+<script>
+(function() {
+  var btn = document.querySelector('.gd-skills-install-toggle');
+  var body = document.getElementById('gd-skills-install-body');
+  if (!btn || !body) return;
+  btn.addEventListener('click', function() {
+    var open = body.classList.toggle('gd-skills-install-open');
+    btn.setAttribute('aria-expanded', open);
+  });
+})();
+</script>
+<h3 class="gd-skills-file-heading anchored">SKILL.md</h3>
+<pre class="gd-skills-raw"><div class="sourceCode" id="cb1"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">name:</span><span class="co"> pseudostate</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">description:</span><span class="co"> &gt;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">  Add your description here. Use when writing Python code that uses the pseudostate package.</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="an">compatibility:</span><span class="co"> Requires Python &gt;=3.13.</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu"># pseudostate</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>Add your description here</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">## Installation</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install pseudostate</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="fu">## API overview</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="fu">### Pseudo-observations</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>Compute jackknife pseudo-observations for state occupation probabilities.</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`calculate_pseudostates`</span>: Compute Aalen Johansen pseudo-observations at a fixed time horizon</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="fu">## Resources</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Full documentation</span><span class="co">](https://uriahf.github.io/pseudostate/)</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">llms.txt</span><span class="co">](llms.txt)</span> — Indexed API reference for LLMs</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">llms-full.txt</span><span class="co">](llms-full.txt)</span> — Comprehensive documentation for LLMs</span></code></pre></div>
+</pre>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -304,68 +270,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       icon: icon
     };
     anchorJS.add('.anchored');
-    const isCodeAnnotation = (el) => {
-      for (const clz of el.classList) {
-        if (clz.startsWith('code-annotation-')) {                     
-          return true;
-        }
-      }
-      return false;
-    }
-    const onCopySuccess = function(e) {
-      // button target
-      const button = e.trigger;
-      // don't keep focus
-      button.blur();
-      // flash "checked"
-      button.classList.add('code-copy-button-checked');
-      var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
-      let tooltip;
-      if (window.bootstrap) {
-        button.setAttribute("data-bs-toggle", "tooltip");
-        button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
-        tooltip = new bootstrap.Tooltip(button, 
-          { trigger: "manual", 
-            customClass: "code-copy-button-tooltip",
-            offset: [0, -8]});
-        tooltip.show();    
-      }
-      setTimeout(function() {
-        if (tooltip) {
-          tooltip.hide();
-          button.removeAttribute("data-bs-title");
-          button.removeAttribute("data-bs-toggle");
-          button.removeAttribute("data-bs-placement");
-        }
-        button.setAttribute("title", currentTitle);
-        button.classList.remove('code-copy-button-checked');
-      }, 1000);
-      // clear code selection
-      e.clearSelection();
-    }
-    const getTextToCopy = function(trigger) {
-      const outerScaffold = trigger.parentElement.cloneNode(true);
-      const codeEl = outerScaffold.querySelector('code');
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-      text: getTextToCopy
-    });
-    clipboard.on('success', onCopySuccess);
-    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-        text: getTextToCopy,
-        container: window.document.getElementById('quarto-embedded-source-code-modal')
-      });
-      clipboardModal.on('success', onCopySuccess);
-    }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
         var filterRegex = new RegExp("https:\/\/uriahf\.github\.io\/pseudostate\/");
@@ -696,6 +600,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+<div class="nav-footer-center">
+<p>Developed by <strong>Uriah&nbsp;Finkel</strong>.<br>Site created with <strong>Great&nbsp;Docs</strong>.</p>
+</div>
+</div>
+</footer>
+<script src="github-widget.js"></script>
+<script src="copy-page.js"></script>
+<script src="sidebar-wrap.js"></script>
+<script>(function(){var s=document.createElement('script');var m=document.querySelector('meta[name="quarto:offset"]');s.src=(m?m.content:'')+'sidebar-float.js';document.body.appendChild(s);})();</script>
+<script src="sidebar-filter.js"></script>
+<script src="dark-mode-toggle.js"></script>
+<script src="back-to-top.js"></script>
+<script>(function(){var s=document.createElement('script');var m=document.querySelector('meta[name="quarto:offset"]');s.src=(m?m.content:'')+'on-this-page.js';document.body.appendChild(s);})();</script>
+<script src="keyboard-nav.js"></script>
+<script src="copy-code.js"></script>
+<script src="details.js"></script>
+<script src="mermaid-renderer.js"></script>
+<script src="tooltips.js"></script>
+<script>(function(){var s=document.createElement('script');var m=document.querySelector('meta[name="quarto:offset"]');s.src=(m?m.content:'')+'color-swatch.js';document.body.appendChild(s);})();</script>
+<script src="responsive-tables.js"></script>
+<script>(function(){var s=document.createElement('script');var m=document.querySelector('meta[name="quarto:offset"]');s.src=(m?m.content:'')+'video-embed.js';document.body.appendChild(s);})();</script>
+<script>(function(){var s=document.createElement('script');var m=document.querySelector('meta[name="quarto:offset"]');s.src=(m?m.content:'')+'termshow.js';document.body.appendChild(s);})();</script>
+<script src="navbar-widgets.js"></script>
 
 
 
