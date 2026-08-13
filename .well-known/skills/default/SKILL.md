@@ -19,7 +19,7 @@ pip install pseudostate
 
 ### Pseudo-observations
 
-Compute jackknife pseudo-observations for state occupation probabilities.
+Compute exact or infinitesimal-jackknife pseudo-observations.
 
 - `calculate_pseudostates`: Compute Aalen Johansen pseudo-observations at a fixed time horizon
 

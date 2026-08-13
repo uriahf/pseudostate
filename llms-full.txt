@@ -5,7 +5,7 @@ This is the API documentation for the pseudostate library.
 
 ## Pseudo-observations
 
-Compute jackknife pseudo-observations for state occupation probabilities.
+Compute exact or infinitesimal-jackknife pseudo-observations.
 
 
 calculate_pseudostates(times_and_reals: polars.dataframe.frame.DataFrame, fixed_time_horizon: int) -> polars.dataframe.frame.DataFrame
