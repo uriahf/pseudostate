@@ -200,3 +200,34 @@ footer.footer {
 @media (max-width: 767.98px) {
   body { line-height: 1.6; }
 }
+
+/* Override default orange doc-labels to match quartodoc blue/slate styling */
+.content span.doc-label::after,
+.content span.doc-label-function::after,
+.content span.doc-label-async::after,
+.content span.doc-label-class::after,
+.content span.doc-label-method::after,
+.content span.doc-label-property::after,
+.content span.doc-label-constant::after,
+.content span.doc-label-typealias::after,
+.content span.doc-label-cli::after,
+.content span.doc-label-cli-group::after {
+  color: var(--uriah-blue) !important;
+  border-color: var(--uriah-line) !important;
+  background-color: var(--uriah-mist) !important;
+}
+
+[data-bs-theme="dark"] .content span.doc-label::after,
+[data-bs-theme="dark"] .content span.doc-label-function::after,
+[data-bs-theme="dark"] .content span.doc-label-async::after,
+[data-bs-theme="dark"] .content span.doc-label-class::after,
+[data-bs-theme="dark"] .content span.doc-label-method::after,
+[data-bs-theme="dark"] .content span.doc-label-property::after,
+[data-bs-theme="dark"] .content span.doc-label-constant::after,
+[data-bs-theme="dark"] .content span.doc-label-typealias::after,
+[data-bs-theme="dark"] .content span.doc-label-cli::after,
+[data-bs-theme="dark"] .content span.doc-label-cli-group::after {
+  color: var(--uriah-blue) !important;
+  border-color: var(--uriah-line) !important;
+  background-color: var(--uriah-mist) !important;
+}
